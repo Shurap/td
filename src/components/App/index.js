@@ -7,11 +7,7 @@ import Header from '../Header';
 const App = () => (
     <div>
       <Header/>
-      <h1>App</h1>
       <Router/>
-
-      <Exercises/>
-      <TrainingList/>
     </div>
 );
 
