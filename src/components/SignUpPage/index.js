@@ -103,7 +103,7 @@ const SignUpForm = withFirebase(SignUpFormBase);
 
 const SignUpPage = () => (
   <div>
-    <h2>Sign Up Page2</h2>
+    <h2>Sign Up Page</h2>
     <SignUpForm/>
   </div>
 );
