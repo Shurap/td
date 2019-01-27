@@ -7,6 +7,7 @@ import Header from '../Header';
 const App = () => (
     <div>
       <Header/>
+      <h1>Application</h1>
       <Router/>
     </div>
 );
