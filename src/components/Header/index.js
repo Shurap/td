@@ -7,6 +7,7 @@ const Header = () => (
     <Link to='/signup'>Sign Up</Link>
     <Link to='/signin'>Sign In</Link>
     <Link to='/signout'>Sign Out</Link>
+    <Link to='/home'>Home</Link>
   </div>
 );
 
