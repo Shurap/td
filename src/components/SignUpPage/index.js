@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withFirebase} from '../Firebase';
+import {withRouter} from 'react-router-dom';
 
 const INITIAL_STATE = {
   username: '',
@@ -19,20 +20,22 @@ class SignUpFormBase extends Component {
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
+        
+      .then(authUser => {
+        return this.props.firebase
+          .user(authUser.user.uid)
+          .set({
+            username,
+            email,
+          });
+      })
       
-      
-      // .then(authUser => {
-      //   return this.props.firebase
-      //     .user(authUser.user.uid)
-      //     .set({
-      //       username,
-      //       email,
-      //     });
-      // })
       .then((authUser) => {
         this.setState({...INITIAL_STATE});
-      //   this.props.history.push(ROUTES.HOME);
+        console.log(this.state);
+        this.props.history.push('/home');
       })
+      
       .catch((error) => {
         this.setState({error});
       });
@@ -99,7 +102,7 @@ class SignUpFormBase extends Component {
   }
 }
 
-const SignUpForm = withFirebase(SignUpFormBase);
+const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 const SignUpPage = () => (
   <div>

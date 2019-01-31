@@ -13,21 +13,22 @@ class SignInFormBase extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const {email, password} = this.state;
+    const { email, password } = this.state;
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
+
       // .then(() => {
       //   this.setState({...INITIAL_STATE});
       //   this.props.history.push(ROUTES.HOME);
       // })
       .catch((error) => {
-        this.setState({error});
+        this.setState({ error });
       });
   };
-  
+
   onChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -74,7 +75,7 @@ const SignInForm = withFirebase(SignInFormBase);
 const SignInPage = () => (
   <div>
     <h2>Sign In Page</h2>
-    <SignInForm/>
+    <SignInForm />
   </div>
 );
 
