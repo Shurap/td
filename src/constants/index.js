@@ -1,0 +1,1 @@
+export const ADD_AUTH_USER_NAME = 'add_auth_user_name';
