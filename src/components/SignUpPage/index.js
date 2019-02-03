@@ -41,7 +41,9 @@ class SignUpFormBase extends Component {
       })
       
       .then(() => {
+        console.log(this.state.username);
         this.props.addAuthUserName(this.state.username);
+        console.log('end');
         this.setState({...INITIAL_STATE});
         this.props.history.push('/home');
       })
@@ -114,7 +116,7 @@ class SignUpFormBase extends Component {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserName}, dispatch);
 
-const SignUpFormEnd = connect(mapDispatchToProps)(SignUpFormBase);
+const SignUpFormEnd = connect(null, mapDispatchToProps)(SignUpFormBase);
 const SignUpForm = withRouter(withFirebase(SignUpFormEnd));
 
 //const SignUpForm = withRouter(withFirebase(connect(mapDispatchToProps)(SignUpFormBase)));
