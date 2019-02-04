@@ -27,8 +27,9 @@ class Firebase {
   doSignOut = () => this.auth.signOut();
 
   user = (uid) => this.db.ref(`user/${uid}`);
+  exercises = (uid) => this.db.ref(`exercises/${uid}`);
   
-  users = () => this.db.ref('user');
+  //users = () => this.db.ref('user');
 
 }
 

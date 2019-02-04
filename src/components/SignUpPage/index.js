@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {withFirebase} from '../Firebase';
 import {withRouter} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {addAuthUserName} from '../../actions';
+import {connect} from 'react-redux';
 
 const INITIAL_STATE = {
   username: '',
@@ -20,8 +23,15 @@ class SignUpFormBase extends Component {
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-        
+       
       .then(authUser => {
+        
+        this.props.firebase
+          .exercises('ex-' + authUser.user.uid)
+          .set({
+            one: 1
+          });
+        
         return this.props.firebase
           .user(authUser.user.uid)
           .set({
@@ -30,9 +40,11 @@ class SignUpFormBase extends Component {
           });
       })
       
-      .then((authUser) => {
+      .then(() => {
+        console.log(this.state.username);
+        this.props.addAuthUserName(this.state.username);
+        console.log('end');
         this.setState({...INITIAL_STATE});
-        console.log(this.state);
         this.props.history.push('/home');
       })
       
@@ -102,7 +114,14 @@ class SignUpFormBase extends Component {
   }
 }
 
-const SignUpForm = withRouter(withFirebase(SignUpFormBase));
+const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserName}, dispatch);
+
+const SignUpFormEnd = connect(null, mapDispatchToProps)(SignUpFormBase);
+const SignUpForm = withRouter(withFirebase(SignUpFormEnd));
+
+//const SignUpForm = withRouter(withFirebase(connect(mapDispatchToProps)(SignUpFormBase)));
+//const SignUpForm = withRouter(withFirebase(SignUpFormBase));
+//const SignUpForm = connect(mapDispatchToProps, withRouter, withFirebase)(SignUpFormBase);
 
 const SignUpPage = () => (
   <div>
@@ -110,6 +129,5 @@ const SignUpPage = () => (
     <SignUpForm/>
   </div>
 );
-
 
 export default SignUpPage;
