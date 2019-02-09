@@ -114,7 +114,7 @@ class SignUpFormBase extends Component {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserName}, dispatch);
 
-const SignUpForm = withRouter(withFirebase(connect(mapDispatchToProps)(SignUpFormBase)));
+const SignUpForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignUpFormBase)));
 
 const SignUpPage = () => (
   <div>
