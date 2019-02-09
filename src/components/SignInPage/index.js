@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
+import {withRouter} from 'react-router-dom';
 
 const INITIAL_STATE = {
   email: '',
@@ -71,7 +72,7 @@ class SignInFormBase extends Component {
   }
 }
 
-const SignInForm = withFirebase(SignInFormBase);
+const SignInForm = withRouter(withFirebase(SignInFormBase));
 
 const SignInPage = () => (
   <div>
