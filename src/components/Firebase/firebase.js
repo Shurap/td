@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+//import { resolve } from 'q';
 
 const config = {
   apiKey: "AIzaSyC_TKnHnhqqnelADY4l-yyMEip4emEKbpg",//process.env.REACT_APP_API_KEY,
@@ -28,19 +29,40 @@ class Firebase {
 
   user = (uid) => this.db.ref(`user/${uid}`);
   exercises = (uid) => this.db.ref(`user/${uid}/exercises`);
-  
+
   // getUser = () => this.db.ref('user');
+
 
   getUserData = (fieldToSearch, stringToSearch) => {
     const ref = this.db.ref('user');
-    ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        const result = childSnapshot.val();
-        console.log('function -', result);
-        return result;
+
+    const promise = new Promise((resolve, reject) => {
+      ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+          const result = childSnapshot.val();
+          console.log('function -', result);
+          resolve(result);
+        })
       })
     })
-  }  
+    
+    return promise;
+  }
+
+
+  // getUserData = (fieldToSearch, stringToSearch) => {
+  //   const ref = this.db.ref('user');
+  //   ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function(snapshot) {
+  //     snapshot.forEach(function(childSnapshot) {
+  //       const result = childSnapshot.val();
+  //       console.log('function -', result);
+  //       return result;
+  //     })
+  //   })
+  // }  
+
+   
+ 
 
 
 }

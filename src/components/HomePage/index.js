@@ -8,9 +8,12 @@ class HomePage extends Component {
 
   getData = () => {
     //console.log('function', this.props.firebase.getUserData('email', 'sss@sss.com'));
-    const result = this.props.firebase.getUserData('email', 'sss@sss.com');
-    console.log('component - ', result);
+
+    this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+      .then((resolve) => console.log('component', resolve));
+
   }
+
 
   render() {
 
