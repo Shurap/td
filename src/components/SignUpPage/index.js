@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withFirebase} from '../Firebase';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import {addAuthUserName} from '../../actions';
+import {addAuthUserData} from '../../actions';
 import {connect} from 'react-redux';
 
 const INITIAL_STATE = {
@@ -41,7 +41,8 @@ class SignUpFormBase extends Component {
       })
       
       .then(() => {
-        this.props.addAuthUserName(this.state.username);
+        this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+          .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({...INITIAL_STATE});
         this.props.history.push('/home');
       })
@@ -112,7 +113,7 @@ class SignUpFormBase extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserName}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserData}, dispatch);
 
 const SignUpForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignUpFormBase)));
 

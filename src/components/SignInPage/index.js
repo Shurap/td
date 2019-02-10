@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import {withRouter} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {addAuthUserData} from '../../actions';
+import {connect} from 'react-redux';
 
 const INITIAL_STATE = {
   email: '',
@@ -20,23 +23,11 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
 
       .then(() => {
+        this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+          .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({...INITIAL_STATE});
         this.props.history.push('/home');
       })
-
-      // .then(() => {
-      //   console.log('--------------------------------', this.props.firebase.getUser);
-      //   this.props.firebase.getUser.on('value', function(snapshop) {
-      //     snapshop.forEach(function(childSnapshot) {
-      //       let childData =childSnapshot.val();
-      //       console.log(childData);
-      //     })
-      //   })
-      //   // this.props.firebase.getUser.child('user').once('value').then(function(snapshot) {
-      //   //   const test = snapshot.val();
-      //   //   console.log(test);
-      //   // })
-      // })
 
       .catch((error) => {
         this.setState({ error });
@@ -86,7 +77,9 @@ class SignInFormBase extends Component {
   }
 }
 
-const SignInForm = withRouter(withFirebase(SignInFormBase));
+const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserData}, dispatch);
+
+const SignInForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignInFormBase)));
 
 const SignInPage = () => (
   <div>

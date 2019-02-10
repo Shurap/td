@@ -13,12 +13,12 @@ const Header = (props) => (
       <Link to='/home'>Home</Link>
     </nav>
     <div>
-      <p>{props.userName ? props.userName : '...Username...'}</p>
+      <p>{props.currentUserName ? props.currentUserName : '...Username...'}</p>
       <Link to='/signout'>Sign Out</Link>
     </div>
   </header>
 );
 
-const mapStateToProps = (state) => ({ userName: state.main.userName });
+const mapStateToProps = (state) => ({ currentUserName: state.main.currentUser.username });
 
 export default connect(mapStateToProps)(Header);
