@@ -24,6 +24,20 @@ class SignInFormBase extends Component {
         this.props.history.push('/home');
       })
 
+      // .then(() => {
+      //   console.log('--------------------------------', this.props.firebase.getUser);
+      //   this.props.firebase.getUser.on('value', function(snapshop) {
+      //     snapshop.forEach(function(childSnapshot) {
+      //       let childData =childSnapshot.val();
+      //       console.log(childData);
+      //     })
+      //   })
+      //   // this.props.firebase.getUser.child('user').once('value').then(function(snapshot) {
+      //   //   const test = snapshot.val();
+      //   //   console.log(test);
+      //   // })
+      // })
+
       .catch((error) => {
         this.setState({ error });
       });

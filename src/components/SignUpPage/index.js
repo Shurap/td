@@ -27,16 +27,16 @@ class SignUpFormBase extends Component {
       .then(authUser => {
         
         this.props.firebase
-          .exercises('ex-' + authUser.user.uid)
-          .set({
-            one: 1
-          });
-        
-        return this.props.firebase
           .user(authUser.user.uid)
           .set({
             username,
             email,
+          });
+
+        return this.props.firebase
+          .exercises(authUser.user.uid)
+          .set({
+            one: 1
           });
       })
       

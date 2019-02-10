@@ -27,9 +27,21 @@ class Firebase {
   doSignOut = () => this.auth.signOut();
 
   user = (uid) => this.db.ref(`user/${uid}`);
-  exercises = (uid) => this.db.ref(`exercises/${uid}`);
+  exercises = (uid) => this.db.ref(`user/${uid}/exercises`);
   
-  //users = () => this.db.ref('user');
+  // getUser = () => this.db.ref('user');
+
+  getUserData = (fieldToSearch, stringToSearch) => {
+    const ref = this.db.ref('user');
+    ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        const result = childSnapshot.val();
+        console.log('function -', result);
+        return result;
+      })
+    })
+  }  
+
 
 }
 

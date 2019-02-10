@@ -5,9 +5,11 @@ import TrainingList from '../TrainingList';
 
 
 class HomePage extends Component {
- 
-  test = () => {
-    console.log(this.props.firebase.authUser);
+
+  getData = () => {
+    //console.log('function', this.props.firebase.getUserData('email', 'sss@sss.com'));
+    const result = this.props.firebase.getUserData('email', 'sss@sss.com');
+    console.log('component - ', result);
   }
 
   render() {
@@ -17,9 +19,9 @@ class HomePage extends Component {
     return (
       <div>
         <h2>Home Page</h2>
-        <Exercises/>
-        <TrainingList/>
-        <button onClick={this.test}>Test</button>
+        <Exercises />
+        <TrainingList />
+        <button onClick={this.getData}>get data</button>
       </div>
     );
   }
