@@ -18,14 +18,14 @@
 }
 
 .header h1 {
-  /* background: blueviolet; */
+  /*background: blueviolet;*/
   padding: 10px;
   color: white;
   letter-spacing: 2px;
 }
 
 .header nav {
-  /* background: yellow; */
+  /*background: yellow;*/
   display: flex;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .header div {
-  /* background: green; */
+  /*background: green;*/
   margin-left: auto;
   display: flex;
   align-items: center;
