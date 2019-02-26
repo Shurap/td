@@ -48,7 +48,6 @@ class Firebase {
       ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
           const result = childSnapshot.val();
-          console.log('function -', result);
           resolve(result);
         })
       })

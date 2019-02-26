@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
-import Exercises from '../Exercises';
+import ListExercises from '../blockListExercises/ListExercises';
 import TrainingList from '../TrainingList';
 
 
@@ -11,7 +11,7 @@ class HomePage extends Component {
     return (
       <div>
         <h2>Home Page</h2>
-        <Exercises />
+        <ListExercises />
         <TrainingList />
       </div>
     );
