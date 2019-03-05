@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Exercise from '../Exercise';
+import Exercise from './Exercise';
 import { connect } from "react-redux";
+import styles from './ListExercises.module.css';
 
 class ListExercise extends Component {
  
@@ -11,10 +12,14 @@ class ListExercise extends Component {
     // const label = this.props.currentListExercises ? this.props.currentListExercises : [1,2,3];
     const label = this.props.currentListExercises;
 
-    const arrayExercises = label.map (element => {
+    const arrayExercises = label.map ((element, index)  => {
       return(
-        <div key={element.id}>
-          <Exercise label={element}/>
+        <div className={styles.fieldListExercises} 
+             key={index}>
+          <Exercise 
+            label={element}
+            selected
+          />
         </div>  
       );
     });

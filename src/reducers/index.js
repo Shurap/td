@@ -8,7 +8,7 @@ const defaultState = {currentUser:{
 }};
 
 // export function mainReducer(state = {currentUser: {}}, action) {
-  export function mainReducer(state = defaultState, action) {
+export function mainReducer(state = defaultState, action) {
   switch (action.type) {
     case ADD_AUTH_USER_DATA:
       return {...state, currentUser: action.currentUser};
@@ -17,4 +17,8 @@ const defaultState = {currentUser:{
     default:
       return state;  
   }
+}
+
+export function exercisesReducer(state = [1,2,3], action) {
+  return state;
 }

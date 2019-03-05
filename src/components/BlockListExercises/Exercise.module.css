@@ -1,0 +1,9 @@
+.exercise_default {
+  color: black;
+  background-color: aqua;
+}
+
+.exercise_selected {
+  color: tomato;
+  background-color: aqua;
+}
