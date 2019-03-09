@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styles from './AddExercise.module.css';
+import {addNewExercise} from '../../actions';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 class AddExercise extends Component {
 
@@ -15,7 +18,8 @@ class AddExercise extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.label);
+    // console.log(this.state.label);
+    this.props.addNewExercise(this.state.label);
   }
 
   render() {
@@ -31,4 +35,6 @@ class AddExercise extends Component {
   }
 }
 
-export default AddExercise;
+const mapDispatchToProps = (dispatch) => bindActionCreators({addNewExercise}, dispatch);
+
+export default connect(null, mapDispatchToProps)(AddExercise);
