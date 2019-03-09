@@ -11,6 +11,15 @@ class AddExercise extends Component {
     label:''
   }
 
+  componentDidUpdate(prevProps) {
+    // console.log('prevProps - ', prevProps.currentUser.exercises);
+    // console.log('this Props - ', this.props.currentUser.exercises);
+    if (this.props.currentUser.exercises !== prevProps.currentUser.exercises) {
+      console.log('didupdate!');
+      this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
+    }
+  }
+
   onChange = (e) => {
     this.setState({
       label: e.target.value
@@ -20,8 +29,9 @@ class AddExercise extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.addNewExercise(this.state.label);
+    // this.componentDidUpdate();
     // console.log('currentUser - ', this.props.currentUser);
-    this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
+    // this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
   }
 
   render() {

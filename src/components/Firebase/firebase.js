@@ -47,7 +47,6 @@ class Firebase {
   setUserData = (uid, data) => {
     const ref = this.db.ref(`user/${uid}`);
     ref.set(data);
-    console.log('what saved - ', data);
   }
 }
 
