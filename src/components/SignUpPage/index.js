@@ -35,11 +35,11 @@ class SignUpFormBase extends Component {
 
         return this.props.firebase
           .exercises(authUser.user.uid)
-          .set({
-            listExercises: ['жим лежа',
+          .set(
+            ['жим лежа',
             'подтягивания',
             'приседания']
-          });
+          );
       })
       
       .then(() => {

@@ -30,17 +30,6 @@ class Firebase {
   user = (uid) => this.db.ref(`user/${uid}`);
   exercises = (uid) => this.db.ref(`user/${uid}/exercises`);
 
-  // getUserData = (fieldToSearch, stringToSearch) => {
-  //   const ref = this.db.ref('user');
-  //   ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function (snapshot) {
-  //     snapshot.forEach(function (childSnapshot) {
-  //       const result = childSnapshot.val();
-  //       console.log('function -', result);
-  //       this.props.addAuthUserName(result);
-  //     })
-  //   })
-  // }
-
   getUserData = (fieldToSearch, stringToSearch) => {
     const ref = this.db.ref('user');
 
@@ -52,8 +41,13 @@ class Firebase {
         })
       })
     })
-
     return promise;
+  }
+
+  setUserData = (uid, data) => {
+    const ref = this.db.ref(`user/${uid}`);
+    ref.set(data);
+    console.log('what saved - ', data);
   }
 }
 

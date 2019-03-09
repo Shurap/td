@@ -3,6 +3,7 @@ import styles from './AddExercise.module.css';
 import {addNewExercise} from '../../actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {withFirebase} from '../Firebase';
 
 class AddExercise extends Component {
 
@@ -18,8 +19,9 @@ class AddExercise extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    // console.log(this.state.label);
     this.props.addNewExercise(this.state.label);
+    // console.log('currentUser - ', this.props.currentUser);
+    this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
   }
 
   render() {
@@ -36,5 +38,6 @@ class AddExercise extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({addNewExercise}, dispatch);
+const mapStateToProps = (state) => ({ currentUser: state.main.currentUser });
 
-export default connect(null, mapDispatchToProps)(AddExercise);
+export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(AddExercise));
