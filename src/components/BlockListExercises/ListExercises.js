@@ -7,13 +7,7 @@ class ListExercise extends Component {
 
   render() {
 
-    console.log(this.props.currentUser);
-
-    // const label = this.props.currentListExercises;
-
-
     const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
-
 
     const arrayExercises = label.map((element, index) => {
       return (
@@ -25,7 +19,6 @@ class ListExercise extends Component {
         </div>
       );
     });
-
 
     return (
       <div className={styles.fieldListExercises}>

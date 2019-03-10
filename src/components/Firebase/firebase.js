@@ -44,10 +44,31 @@ class Firebase {
     return promise;
   }
 
-  setUserData = (uid, data) => {
-    const ref = this.db.ref(`user/${uid}`);
-    ref.set(data);
+  // setUserData = (uid, data) => {
+  //   const ref = this.db.ref(`user/${uid}`);
+  //   ref.set(data);
+  // }
+
+  setExercisesData = (uid, data) => {
+    const ref = this.db.ref(`user/${uid}/exercises`);
+    return ref.set(data);
   }
+
+  // getUserById = (uid) => {
+  //   const ref = this.user (uid);
+  //   return ref.once('value').then((snapshot) => {
+  //     const result = snapshot.val();
+  //     return result;
+  //   })
+  // }
+  getUserById = async (uid) => {
+    const ref = this.user (uid);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    return result;
+  }
+
+
 }
 
 export default Firebase;

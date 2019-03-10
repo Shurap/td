@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import styles from './AddExercise.module.css';
-import {addNewExercise} from '../../actions';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {withFirebase} from '../Firebase';
+import { addAuthUserData } from '../../actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withFirebase } from '../Firebase';
 
 class AddExercise extends Component {
 
   state = {
-    label:''
+    label: ''
   }
 
   componentDidUpdate(prevProps) {
-    // console.log('prevProps - ', prevProps.currentUser.exercises);
-    // console.log('this Props - ', this.props.currentUser.exercises);
     if (this.props.currentUser.exercises !== prevProps.currentUser.exercises) {
       console.log('didupdate!');
-      this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
     }
   }
 
@@ -26,29 +23,37 @@ class AddExercise extends Component {
     })
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.addNewExercise(this.state.label);
-    // this.componentDidUpdate();
-    // console.log('currentUser - ', this.props.currentUser);
-    // this.props.firebase.setUserData(this.props.firebase.auth.currentUser.uid, this.props.currentUser);
+  onSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, this.props.currentUser.exercises.concat(this.state.label));
+      const user = await this.props.firebase.getUserById(this.props.firebase.auth.currentUser.uid);
+      this.props.addAuthUserData(user);
+    }
+    catch (error) {
+      //--------------
+    }
+    // Promises:
+    // this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, this.props.currentUser.exercises.concat(this.state.label))
+    //   .then (() => this.props.firebase.getUserById(this.props.firebase.auth.currentUser.uid))
+    //   .then ((res) => console.log('!!!!!!!!!!!!!!!!!!!',res));    
   }
 
   render() {
     return (
-      <form className={styles.fieldAddExercise} 
-            onSubmit={this.onSubmit }>
-        <p>AddExercise</p>    
+      <form className={styles.fieldAddExercise}
+        onSubmit={this.onSubmit}>
+        <p>AddExercise</p>
         <input type="text"
-               onChange={this.onChange}
-               value={this.state.label} />
+          onChange={this.onChange}
+          value={this.state.label} />
         <button>Add</button>
       </form>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({addNewExercise}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData }, dispatch);
 const mapStateToProps = (state) => ({ currentUser: state.main.currentUser });
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(AddExercise));
