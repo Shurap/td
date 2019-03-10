@@ -3,8 +3,12 @@ import styles from './Exercise.module.css';
 
 export default class Exercise extends Component {
 
+  state = {
+    active: false
+  }
+
   onToggleSelected = () => {
-    console.log(this.props.label);
+    this.setState({...this.state, active: !this.state.active});
   }
 
   render() {
@@ -12,7 +16,10 @@ export default class Exercise extends Component {
     const {label} = this.props;
 
     return (
-      <div className={styles.exercise_selected} onClick={this.onToggleSelected}>
+      <div 
+        className={(this.state.active) ? styles.exercise_selected : styles.exercise_default} 
+        onClick={this.onToggleSelected}>
+        <p>Exercise</p>
         {label}  
       </div>
     );

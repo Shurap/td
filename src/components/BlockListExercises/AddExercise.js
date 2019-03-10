@@ -38,6 +38,7 @@ class AddExercise extends Component {
     return (
       <form className={styles.fieldAddExercise} 
             onSubmit={this.onSubmit }>
+        <p>AddExercise</p>    
         <input type="text"
                onChange={this.onChange}
                value={this.state.label} />
