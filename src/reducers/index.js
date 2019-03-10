@@ -18,6 +18,7 @@ export function mainReducer(state = defaultState, action) {
     case USER_OUT:
       return { ...state, currentUser: action.currentUser };
     case ADD_NEW_EXERCISE:
+      console.log(state.currentUser);
       return {
         ...state, currentUser: {
           ...state.currentUser, exercises: state.currentUser.exercises.concat(action.label)

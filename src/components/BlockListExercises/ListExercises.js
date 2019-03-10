@@ -7,12 +7,12 @@ class ListExercise extends Component {
 
   render() {
 
-    // console.log(this.props.currentListExercises);
+    console.log(this.props.currentUser);
 
-    const label = this.props.currentListExercises;
+    // const label = this.props.currentListExercises;
 
 
-    // const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
+    const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
 
 
     const arrayExercises = label.map((element, index) => {
@@ -36,6 +36,6 @@ class ListExercise extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ currentListExercises: state.main.currentUser.exercises });
+const mapStateToProps = (state) => ({ currentListExercises: state.main.currentUser.exercises, currentUser: state.main.currentUser});
 
 export default connect(mapStateToProps)(ListExercise);
