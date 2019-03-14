@@ -20,7 +20,12 @@
   color: tomato;
 }
 
-p {
+.exercise_default p {
+  font-size: 15px;
+  color: white;
+}
+
+.exercise_selected p {
   font-size: 15px;
   color: white;
 }

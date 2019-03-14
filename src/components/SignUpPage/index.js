@@ -36,7 +36,7 @@ class SignUpFormBase extends Component {
         return this.props.firebase
           .exercises(authUser.user.uid)
           .set(
-            ['1']
+            []
           );
       })
       
