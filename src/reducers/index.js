@@ -10,6 +10,10 @@ const defaultState = {
   }
 };
 
+const defaultStateExercises = {
+  activeExercises: []
+}
+
 // export function mainReducer(state = {currentUser: {}}, action) {
 export function mainReducer(state = defaultState, action) {
   switch (action.type) {
@@ -29,6 +33,6 @@ export function mainReducer(state = defaultState, action) {
   }
 }
 
-export function exercisesReducer(state = [1, 2, 3], action) {
+export function exercisesReducer(state = defaultStateExercises, action) {
   return state;
 }

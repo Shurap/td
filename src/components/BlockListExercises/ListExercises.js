@@ -22,6 +22,7 @@ class ListExercise extends Component {
 
     return (
       <div className={styles.fieldListExercises}>
+        <button>Set</button>
         <p>ListExercises</p>
         {arrayExercises}
       </div>
