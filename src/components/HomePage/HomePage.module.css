@@ -1,0 +1,6 @@
+.homePage {
+  display: flex;
+  background: #2c3e50;
+  border: 1px solid red;
+  justify-content: flex-end;
+}

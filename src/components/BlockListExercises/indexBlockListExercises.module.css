@@ -1,15 +1,15 @@
 .block {
-  position: fixed;
+  margin-left: 7px;
+  position: relative;
   background: #2c3e50;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   width: 300px;
-  height: 700px;
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
   border: 1px solid black;
-  left: 10px;
-  transition: left 1s ease-out;
+  left: 0px;
+  transition: left 0.5s ease-out;
 }
 
 .block_hidden {
@@ -17,17 +17,13 @@
   background: #2c3e50;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   width: 300px;
-  height: 700px;
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
   border: 1px solid black;
-  left: -280px;
-  /* -webkit-transition: left 1s; */
-  /* transition: left 1s ease-out 0.5s; */
-  transition: left 1s ease-out;
+  left: -340px;
+  transition: left 0.5s ease-out;
 }
-
 
 .block p {
   font-size: 15px;
@@ -35,10 +31,13 @@
 }
 
 .button {
+  position: absolute;
+  left: 340px;
+  /* top: 1em; */
   width: 40px;
   height: 40px;
   background-color: yellow;
   color: red;
   cursor: pointer;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
