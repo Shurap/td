@@ -9,7 +9,6 @@ class ListExercise extends Component {
 
   onSentExercise = (label) => {
     const arrTodayExercises = [...this.props.todayExercises];
-    console.log(arrTodayExercises);
     const index = arrTodayExercises.findIndex(element => label === element);
     index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
     this.props.addToTodayExercises(arrTodayExercises);

@@ -12,7 +12,6 @@ const defaultState = {
 };
 
 const defaultStateExercises = {
-  // sentExercise: [],
   todayExercises: []
 }
 

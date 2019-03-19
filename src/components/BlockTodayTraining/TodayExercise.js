@@ -10,7 +10,6 @@ export default class TodayExercise extends Component {
 
     return(
       <div className={styles.todayExercise}>
-        <p>Exercise...</p>
         {label}
         <EditCount/>
       </div>
