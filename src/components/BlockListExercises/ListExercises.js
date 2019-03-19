@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import Exercise from './Exercise';
 import { connect } from "react-redux";
 import styles from './ListExercises.module.css';
+import {addToTodayExercises} from '../../actions';
+import { bindActionCreators } from 'redux';
 
 class ListExercise extends Component {
 
+  onSentExercise = (label) => {
+    const arrTodayExercises = [...this.props.todayExercises];
+    console.log(arrTodayExercises);
+    const index = arrTodayExercises.findIndex(element => label === element);
+    index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
+    this.props.addToTodayExercises(arrTodayExercises);
+  } 
+  
   render() {
 
     const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
@@ -14,7 +24,7 @@ class ListExercise extends Component {
         <div key={index}>
           <Exercise
             label={element}
-            selected
+            onSentExercise={this.onSentExercise}
           />
         </div>
       );
@@ -22,7 +32,6 @@ class ListExercise extends Component {
 
     return (
       <div className={styles.fieldListExercises}>
-        <button>Set</button>
         <p>ListExercises</p>
         {arrayExercises}
       </div>
@@ -30,6 +39,11 @@ class ListExercise extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ currentListExercises: state.main.currentUser.exercises, currentUser: state.main.currentUser});
+const mapStateToProps = (state) => ({ 
+  currentListExercises: state.main.currentUser.exercises,
+  currentUser: state.main.currentUser,
+  todayExercises: state.exercises.todayExercises
+});
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addToTodayExercises }, dispatch);
 
-export default connect(mapStateToProps)(ListExercise);
+export default connect(mapStateToProps, mapDispatchToProps)(ListExercise);

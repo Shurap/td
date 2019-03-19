@@ -12,7 +12,7 @@ class Exercise extends Component {
     error: null
   }
 
-  onToggleSelected = () => {
+  onSentExercise = () => {
     this.setState({...this.state, active: !this.state.active});
   }
 
@@ -36,12 +36,11 @@ class Exercise extends Component {
     const {error} = this.state;
 
     return (
-      <div 
-        className={(this.state.active) ? styles.exercise_selected : styles.exercise_default} 
-        onClick={this.onToggleSelected}>
+      <div className={(this.state.active) ? styles.exercise_selected : styles.exercise_default}>
         <p>Exercise</p>
         {label}  
         <button onClick={this.onDelete}>Del</button>
+        <button onClick={() => this.props.onSentExercise(label)}>Set</button>
         {error && <p>{error.message}</p>}
       </div>
     );
