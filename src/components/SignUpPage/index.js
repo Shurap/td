@@ -31,7 +31,16 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
+
           });
+
+          // const defaultState = {
+          //   currentUser: {
+          //     email: '',
+          //     exercises: [],
+          //     username: ''
+          //   }
+          // };
 
         return this.props.firebase
           .exercises(authUser.user.uid)

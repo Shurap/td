@@ -62,13 +62,38 @@ class Firebase {
   //   })
   // }
   getUserById = async (uid) => {
-    const ref = this.user (uid);
+    const ref = this.user(uid);
     const snapshot = await ref.once('value');
     const result = snapshot.val();
     return result;
+  }
+
+  setData = (pathInBase, data) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
+    ref.set(data);
   }
 
 
 }
 
 export default Firebase;
+
+
+const base = {
+  'user': {
+    'userID': {
+      'email': 'sss@s.com',
+      'username': 'sss',
+      'exercises': {
+        'date': '15.07.19',
+        'name': 'run',
+        'data1': {
+          'width': '15', 'numbers': '10'
+        },
+        'data2': {
+          'width': '15', 'numbers': '10'
+        }
+      }
+    }
+  }
+}
