@@ -68,17 +68,26 @@ class Firebase {
     return result;
   }
 
+  getWholeUser = async () => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    console.log('getWholeUser - ', result);
+    return result;
+  }
+
   setData = (pathInBase, data) => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
-    ref.set(data);
+    ref.update(data);
   }
+  
 
 
 }
 
 export default Firebase;
 
-
+/*
 const base = {
   'user': {
     'userID': {
@@ -97,3 +106,4 @@ const base = {
     }
   }
 }
+*/

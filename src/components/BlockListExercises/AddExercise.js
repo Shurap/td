@@ -25,9 +25,16 @@ class AddExercise extends Component {
   }
 
   onSubmit = async (e) => {
-    
-    const data = (this.props.currentUser.exercises) ? this.props.currentUser.exercises.concat(this.state.label) : [this.state.label];  
-    
+
+    // const data = (this.props.currentUser.exercises) ? this.props.currentUser.exercises.concat(this.state.label) : [this.state.label];
+    const data = {
+      [this.state.label]: {
+        date: (new Date()).toString(),
+        name: this.state.label,
+        data: ''
+      }
+    }
+
     try {
       e.preventDefault();
       // await this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, data);
@@ -36,18 +43,13 @@ class AddExercise extends Component {
       this.props.addAuthUserData(user);
     }
     catch (error) {
-      this.setState({error});
+      this.setState({ error });
     }
-
-    // Promises:
-    // this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, this.props.currentUser.exercises.concat(this.state.label))
-    //   .then (() => this.props.firebase.getUserById(this.props.firebase.auth.currentUser.uid))
-    //   .then ((res) => console.log('!!!!!!!!!!!!!!!!!!!',res));    
   }
 
   render() {
 
-    const {error} = this.state;
+    const { error } = this.state;
 
     return (
       <form className={styles.fieldAddExercise}

@@ -17,8 +17,9 @@ class ListExercise extends Component {
   render() {
 
     const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
-
-    const arrayExercises = label.map((element, index) => {
+    const elem = Object.keys(label);
+    
+    const arrayExercises = elem.map((element, index) => {
       return (
         <div key={index}>
           <Exercise

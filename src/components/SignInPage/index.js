@@ -23,7 +23,8 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
 
       .then(() => {
-        this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+        // this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+        this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({ ...INITIAL_STATE });
         this.props.history.push('/home');

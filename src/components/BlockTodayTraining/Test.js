@@ -1,17 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 
 class Test extends Component {
 
   testFunction = () => {
-    this.props.firebase.setData('exercises', ['test1']);
+    const data = {
+      run3: {
+        date: (new Date()).toString(),
+        name: 'run',
+        data: ''
+      }
+    }
+    this.props.firebase.setData('exercises', data);
   }
-  
-  render(){
-  
-    return(
+
+  testFunction1 = () => {
+    this.props.firebase.getWholeUser();
+  }
+
+  render() {
+
+    return (
       <div>
         <button onClick={this.testFunction}>Press test</button>
+        <button onClick={this.testFunction1}>Press test1</button>
       </div>
     )
   }
