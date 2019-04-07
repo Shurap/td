@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './AddExercise.module.css';
 import { addAuthUserData } from '../../actions';
+import { addExerciseToStoreExercise } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withFirebase } from '../Firebase';
@@ -12,11 +13,11 @@ class AddExercise extends Component {
     error: null
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.currentUser.exercises !== prevProps.currentUser.exercises) {
-      console.log('didupdate!');
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.currentUser.exercises !== prevProps.currentUser.exercises) {
+  //     console.log('didupdate!');
+  //   }
+  // }
 
   onChange = (e) => {
     this.setState({
@@ -30,7 +31,7 @@ class AddExercise extends Component {
     const data = {
       [this.state.label]: {
         date: (new Date()).toString(),
-        name: this.state.label,
+        // name: this.state.label,
         data: ''
       }
     }
@@ -38,9 +39,15 @@ class AddExercise extends Component {
     try {
       e.preventDefault();
       // await this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, data);
-      await this.props.firebase.setData('exercises', data);
-      const user = await this.props.firebase.getUserById(this.props.firebase.auth.currentUser.uid);
-      this.props.addAuthUserData(user);
+      await this.props.firebase.setDataToBase('exercises', data);
+
+      //-----------------
+      const newExercise = await this.props.firebase.getDataToStoreExercise(this.state.label);
+      this.props.addExerciseToStoreExercise(newExercise);
+      //------------------
+
+      // const user = await this.props.firebase.getUserById();
+      // this.props.addAuthUserData(user);
     }
     catch (error) {
       this.setState({ error });
@@ -65,7 +72,7 @@ class AddExercise extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData, addExerciseToStoreExercise }, dispatch);
 const mapStateToProps = (state) => ({ currentUser: state.main.currentUser });
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(AddExercise));

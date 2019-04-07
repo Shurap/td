@@ -1,7 +1,8 @@
 import { ADD_AUTH_USER_DATA } from '../constants';
 import { USER_OUT } from '../constants';
 import { ADD_NEW_EXERCISE } from '../constants';
-import {ADD_TO_TODAY_EXERCISES} from '../constants';
+import { ADD_TO_TODAY_EXERCISES } from '../constants';
+import { ADD_EXERCISE_TO_STORE_EXERCISE } from '../constants';
 
 const defaultState = {
   currentUser: {
@@ -15,7 +16,7 @@ const defaultStateExercises = {
   todayExercises: []
 }
 
-// export function mainReducer(state = {currentUser: {}}, action) {
+//export function mainReducer(state = {currentUser: {}}, action) {
 export function mainReducer(state = defaultState, action) {
   switch (action.type) {
     case ADD_AUTH_USER_DATA:
@@ -28,6 +29,13 @@ export function mainReducer(state = defaultState, action) {
           ...state.currentUser, exercises: state.currentUser.exercises.concat(action.label)
         }
       };
+
+    case ADD_EXERCISE_TO_STORE_EXERCISE:
+      const data = action.data;
+      return {
+        ...state, currentUser: {...state.currentUser, exercises: {...state.currentUser.exercises, ...action.data}}
+      };
+
     default:
       return state;
   }
@@ -36,8 +44,8 @@ export function mainReducer(state = defaultState, action) {
 export function exercisesReducer(state = defaultStateExercises, action) {
   switch (action.type) {
     case ADD_TO_TODAY_EXERCISES:
-      return {...state, todayExercises: action.exercise};
+      return { ...state, todayExercises: action.exercise };
     default:
-      return state;  
+      return state;
   }
 }

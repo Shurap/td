@@ -54,35 +54,46 @@ class Firebase {
     return ref.set(data);
   }
 
-  // getUserById = (uid) => {
-  //   const ref = this.user (uid);
-  //   return ref.once('value').then((snapshot) => {
-  //     const result = snapshot.val();
-  //     return result;
-  //   })
+  // getUserById = async (uid) => {
+  //   const ref = this.user(uid);
+  //   const snapshot = await ref.once('value');
+  //   const result = snapshot.val();
+  //   return result;
   // }
-  getUserById = async (uid) => {
-    const ref = this.user(uid);
+
+  getUserById = async () => {
+    const ref = this.user(this.auth.currentUser.uid);
     const snapshot = await ref.once('value');
     const result = snapshot.val();
     return result;
   }
+
 
   getWholeUser = async () => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}`);
     const snapshot = await ref.once('value');
     const result = snapshot.val();
-    console.log('getWholeUser - ', result);
     return result;
   }
 
-  setData = (pathInBase, data) => {
+  setDataToBase = (pathInBase, data) => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
     ref.update(data);
   }
-  
 
+  getDataToStoreExercise = async (nameExercise) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    const data = {
+      [nameExercise]: result
+    } 
+    return data;
+    
+  }
 
+  get = async () => {
+  }
 }
 
 export default Firebase;
@@ -93,17 +104,29 @@ const base = {
     'userID': {
       'email': 'sss@s.com',
       'username': 'sss',
+      
+      date ???
+      
       'exercises': {
-        'date': '15.07.19',
-        'name': 'run',
-        'data1': {
-          'width': '15', 'numbers': '10'
+        'name1': {
+          'date': '15.07.19',
+          'data': {
+            '1': { 'width': '15', 'numbers': '10' },
+            '2': { 'width': '20', 'numbers': '10' },
+            '3': { 'width': '25', 'numbers': '8' }
+          }
         },
-        'data2': {
-          'width': '15', 'numbers': '10'
+        'name2': {
+          'date': '15.07.19',
+          'data': {
+            '1': { 'width': '15', 'numbers': '10' },
+            '2': { 'width': '20', 'numbers': '10' },
+            '3': { 'width': '25', 'numbers': '8' }
+          }
         }
       }
     }
   }
+}
 }
 */

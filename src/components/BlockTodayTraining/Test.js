@@ -18,12 +18,22 @@ class Test extends Component {
     this.props.firebase.getWholeUser();
   }
 
+  testFunction2 = () => {
+    this.props.firebase.getDataToStore('exercises/z1');
+  }
+
+  testFunction3 = () => {
+    this.props.firebase.get()
+  }
+
   render() {
 
     return (
       <div>
         <button onClick={this.testFunction}>Press test</button>
         <button onClick={this.testFunction1}>Press test1</button>
+        <button onClick={this.testFunction2}>Press test2</button>
+        <button onClick={this.testFunction3}>Press test3</button>
       </div>
     )
   }
