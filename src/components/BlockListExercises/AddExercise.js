@@ -13,12 +13,6 @@ class AddExercise extends Component {
     error: null
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.currentUser.exercises !== prevProps.currentUser.exercises) {
-  //     console.log('didupdate!');
-  //   }
-  // }
-
   onChange = (e) => {
     this.setState({
       label: e.target.value
@@ -26,28 +20,18 @@ class AddExercise extends Component {
   }
 
   onSubmit = async (e) => {
-
-    // const data = (this.props.currentUser.exercises) ? this.props.currentUser.exercises.concat(this.state.label) : [this.state.label];
     const data = {
       [this.state.label]: {
         date: (new Date()).toString(),
-        // name: this.state.label,
         data: ''
       }
     }
 
     try {
       e.preventDefault();
-      // await this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, data);
       await this.props.firebase.setDataToBase('exercises', data);
-
-      //-----------------
       const newExercise = await this.props.firebase.getDataToStoreExercise(this.state.label);
       this.props.addExerciseToStoreExercise(newExercise);
-      //------------------
-
-      // const user = await this.props.firebase.getUserById();
-      // this.props.addAuthUserData(user);
     }
     catch (error) {
       this.setState({ error });

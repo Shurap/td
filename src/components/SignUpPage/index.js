@@ -31,26 +31,12 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
-
           });
-
-          // const defaultState = {
-          //   currentUser: {
-          //     email: '',
-          //     exercises: [],
-          //     username: ''
-          //   }
-          // };
-
-        return this.props.firebase
-          .exercises(authUser.user.uid)
-          .set(
-            []
-          );
       })
       
       .then(() => {
-        this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+        //this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
+        this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({...INITIAL_STATE});
         this.props.history.push('/home');

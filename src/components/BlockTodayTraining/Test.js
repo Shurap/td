@@ -23,7 +23,7 @@ class Test extends Component {
   }
 
   testFunction3 = () => {
-    this.props.firebase.get()
+    
   }
 
   render() {

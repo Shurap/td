@@ -2,7 +2,6 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-
 const config = {
   apiKey: "AIzaSyC_TKnHnhqqnelADY4l-yyMEip4emEKbpg",//process.env.REACT_APP_API_KEY,
   authDomain: "app-training-diary.firebaseapp.com",//process.env.REACT_APP_AUTH_DOMAIN,
@@ -28,46 +27,6 @@ class Firebase {
   doSignOut = () => this.auth.signOut();
 
   user = (uid) => this.db.ref(`user/${uid}`);
-  exercises = (uid) => this.db.ref(`user/${uid}/exercises`);
-
-  getUserData = (fieldToSearch, stringToSearch) => {
-    const ref = this.db.ref('user');
-
-    const promise = new Promise((resolve, reject) => {
-      ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-          const result = childSnapshot.val();
-          resolve(result);
-        })
-      })
-    })
-    return promise;
-  }
-
-  // setUserData = (uid, data) => {
-  //   const ref = this.db.ref(`user/${uid}`);
-  //   ref.set(data);
-  // }
-
-  setExercisesData = (uid, data) => {
-    const ref = this.db.ref(`user/${uid}/exercises`);
-    return ref.set(data);
-  }
-
-  // getUserById = async (uid) => {
-  //   const ref = this.user(uid);
-  //   const snapshot = await ref.once('value');
-  //   const result = snapshot.val();
-  //   return result;
-  // }
-
-  getUserById = async () => {
-    const ref = this.user(this.auth.currentUser.uid);
-    const snapshot = await ref.once('value');
-    const result = snapshot.val();
-    return result;
-  }
-
 
   getWholeUser = async () => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}`);
@@ -88,12 +47,24 @@ class Firebase {
     const data = {
       [nameExercise]: result
     } 
-    return data;
-    
+    return data; 
   }
 
-  get = async () => {
+  getAllExercisesToStore = async () => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    const data = {
+      exercises: result
+    } 
+    return data;
   }
+
+  deleteExerciseFromBase = (nameExercise) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
+    ref.remove();
+  }
+
 }
 
 export default Firebase;
@@ -130,3 +101,24 @@ const base = {
 }
 }
 */
+
+//-------------------------------------
+  // getUserData = (fieldToSearch, stringToSearch) => {
+  //   const ref = this.db.ref('user');
+
+  //   const promise = new Promise((resolve, reject) => {
+  //     ref.orderByChild(fieldToSearch).equalTo(stringToSearch).on('value', function (snapshot) {
+  //       snapshot.forEach(function (childSnapshot) {
+  //         const result = childSnapshot.val();
+  //         resolve(result);
+  //       })
+  //     })
+  //   })
+  //   return promise;
+  // }
+
+  // setUserData = (uid, data) => {
+  //   const ref = this.db.ref(`user/${uid}`);
+  //   ref.set(data);
+  // }
+  //---------------------------------------------
