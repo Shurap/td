@@ -46,8 +46,8 @@ class Firebase {
     const result = snapshot.val();
     const data = {
       [nameExercise]: result
-    } 
-    return data; 
+    }
+    return data;
   }
 
   getAllExercisesToStore = async () => {
@@ -56,7 +56,7 @@ class Firebase {
     const result = snapshot.val();
     const data = {
       exercises: result
-    } 
+    }
     return data;
   }
 
@@ -75,9 +75,58 @@ const base = {
     'userID': {
       'email': 'sss@s.com',
       'username': 'sss',
-      
-      date ???
-      
+
+      'shedule': {
+
+        '15.05.19': {
+          'nameEx1': {
+            '1': {
+              'width': '10',
+              'numbers': '20'
+            },
+            '2': {
+              'width': '15',
+              'numbers': '15'
+            },
+            '3': {
+              'width': '20',
+              'numbers': '10'
+            }
+          },
+          'nameEx2': {
+            '1': {
+              'width': '10',
+              'numbers': '20'
+            },
+            '2': {
+              'width': '15',
+              'numbers': '15'
+            },
+            '3': {
+              'width': '20',
+              'numbers': '10'
+            }
+          }
+        },
+
+        '17.05.19': {
+          'nameEx1': {
+            '1': {
+              'width': '10',
+              'numbers': '20'
+            },
+            '2': {
+              'width': '15',
+              'numbers': '15'
+            },
+            '3': {
+              'width': '20',
+              'numbers': '10'
+            }
+          }
+        },
+      },
+
       'exercises': {
         'name1': {
           'date': '15.07.19',
@@ -99,8 +148,9 @@ const base = {
     }
   }
 }
-}
 */
+
+
 
 //-------------------------------------
   // getUserData = (fieldToSearch, stringToSearch) => {

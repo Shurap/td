@@ -4,10 +4,16 @@ import { connect } from "react-redux";
 import styles from './ListExercises.module.css';
 import {addToTodayExercises} from '../../actions';
 import { bindActionCreators } from 'redux';
+import { withFirebase } from '../Firebase';
 
 class ListExercise extends Component {
 
   onSentExercise = (label) => {
+ 
+    const today = new Date().toISOString().split('T')[0];
+    const data = {[label]:''};
+    this.props.firebase.setDataToBase(`shedule/${today}/`, data);
+    
     const arrTodayExercises = [...this.props.todayExercises];
     const index = arrTodayExercises.findIndex(element => label === element);
     index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
@@ -46,4 +52,4 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addToTodayExercises }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListExercise);
+export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(ListExercise));
