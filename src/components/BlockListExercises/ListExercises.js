@@ -8,6 +8,16 @@ import { withFirebase } from '../Firebase';
 
 class ListExercise extends Component {
 
+  onSearch = (enterArray) => {
+    if (this.props.searchLabel.length === 0) {
+      return enterArray;
+    }
+    const exitArray = enterArray.filter ((element) => {
+      return element.toLowerCase().indexOf(this.props.searchLabel.toLowerCase()) > -1;
+    });
+    return exitArray;
+  }
+  
   onSentExercise = (label) => {
  
     const today = new Date().toISOString().split('T')[0];
@@ -18,14 +28,16 @@ class ListExercise extends Component {
     const index = arrTodayExercises.findIndex(element => label === element);
     index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
     this.props.addToTodayExercises(arrTodayExercises);
+    
   } 
   
   render() {
 
-    const label = (this.props.currentListExercises) ? this.props.currentListExercises : [];
-    const elem = Object.keys(label);
+    const label = (this.props.currentListExercises) ? this.props.currentListExercises : {};
+    const labelBeforeFilter = Object.keys(label);
+    const labelAfterFilter = this.onSearch(labelBeforeFilter);
     
-    const arrayExercises = elem.map((element, index) => {
+    const arrayExercises = labelAfterFilter.map((element, index) => {
       return (
         <div key={index}>
           <Exercise
@@ -48,7 +60,8 @@ class ListExercise extends Component {
 const mapStateToProps = (state) => ({ 
   currentListExercises: state.main.currentUser.exercises,
   currentUser: state.main.currentUser,
-  todayExercises: state.exercises.todayExercises
+  todayExercises: state.exercises.todayExercises,
+  searchLabel: state.search.searchLabel
 });
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addToTodayExercises }, dispatch);
 

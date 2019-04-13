@@ -40,15 +40,21 @@ class Firebase {
     ref.update(data);
   }
 
-  getDataToStoreExercise = async (nameExercise) => {
-    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
-    const snapshot = await ref.once('value');
-    const result = snapshot.val();
-    const data = {
-      [nameExercise]: result
-    }
-    return data;
-  }
+  // getDataToStoreExercise = async (nameExercise) => {
+  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
+  //   const snapshot = await ref.once('value');
+  //   const result = snapshot.val();
+  //   const data = {
+  //     [nameExercise]: result
+  //   }
+  //   return data;
+  // }
+
+  // getDataToStoreExercise = async () => {
+  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/`);
+  //   const snapshot = await ref.once('value');
+  //   const result = snapshot.val();
+  // }
 
   getAllExercisesToStore = async () => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises`);
@@ -68,6 +74,18 @@ class Firebase {
 }
 
 export default Firebase;
+
+/*
+getData = () => {
+  this.db.ref("user").orderByChild("email").equalTo("xxx@xxx.com").once("value", function (snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      // var cellNum = childSnapshot.val().CellNum;
+      console.log('1', childSnapshot.val());
+      // console.log('2', cellNum);
+    });
+  });
+}
+*/
 
 /*
 const base = {

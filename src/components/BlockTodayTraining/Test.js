@@ -23,7 +23,7 @@ class Test extends Component {
   }
 
   testFunction3 = () => {
-    
+    this.props.firebase.getData();
   }
 
   render() {
@@ -33,7 +33,7 @@ class Test extends Component {
         <button onClick={this.testFunction}>Press test</button>
         <button onClick={this.testFunction1}>Press test1</button>
         <button onClick={this.testFunction2}>Press test2</button>
-        <button onClick={this.testFunction3}>Press test3</button>
+        <button onClick={this.testFunction3}>Press to get data from bass</button>
       </div>
     )
   }
