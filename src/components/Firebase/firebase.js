@@ -190,3 +190,6 @@ const base = {
   //   ref.set(data);
   // }
   //---------------------------------------------
+
+  //---------------------------------------
+  // make gray button 'set' when base have exercise 

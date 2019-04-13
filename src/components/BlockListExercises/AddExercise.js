@@ -57,7 +57,7 @@ class AddExercise extends Component {
           <button>Add</button>
           {error && <p>{error.message}</p>}
         </form>
-        <button onClick={this.onCancel}>Cansel</button>
+        <button onClick={this.onCancel}>Cancel</button>
       </div>
     )
   }
