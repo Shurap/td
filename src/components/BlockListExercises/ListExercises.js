@@ -29,41 +29,11 @@ class ListExercise extends Component {
     try {
       await this.props.firebase.setDataToBase(`schedule/${today}/`, data);
       const exerciseToStore = await this.props.firebase.getTrainingExerciseToStore(label, today);
-      console.log(exerciseToStore)
       this.props.addToScheduleExercise(exerciseToStore, today);
-
     }
     catch (error) {
       this.setState({ error });
     }
-
-    // const arrTodayExercises = [...this.props.todayExercises];
-    // const index = arrTodayExercises.findIndex(element => label === element);
-    // index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
-    // this.props.addToTodayExercises(arrTodayExercises);
-
-
-
-
-    // onSubmit = async (e) => {
-    //   const data = {
-    //     [this.props.searchLabel]: {
-    //       date: (new Date()).toString(),
-    //       data: ''
-    //     }
-    //   }
-
-    //   try {
-    //     e.preventDefault();
-    //     await this.props.firebase.setDataToBase('exercises', data);
-    //     const allExercise = await this.props.firebase.getAllExercisesToStore();
-    //     this.props.addAllExercisesToStore(allExercise);
-    //   }
-
-    //   catch (error) {
-    //     this.setState({ error });
-    //   }
-    // }
   }
 
   render() {
@@ -95,7 +65,6 @@ class ListExercise extends Component {
 const mapStateToProps = (state) => ({
   currentListExercises: state.main.currentUser.exercises,
   currentUser: state.main.currentUser,
-  // todayExercises: state.exercises.todayExercises,
   searchLabel: state.search.searchLabel
 });
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addToScheduleExercise }, dispatch);

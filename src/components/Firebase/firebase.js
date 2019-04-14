@@ -40,22 +40,6 @@ class Firebase {
     ref.update(data);
   }
 
-  // getDataToStoreExercise = async (nameExercise) => {
-  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
-  //   const snapshot = await ref.once('value');
-  //   const result = snapshot.val();
-  //   const data = {
-  //     [nameExercise]: result
-  //   }
-  //   return data;
-  // }
-
-  // getDataToStoreExercise = async () => {
-  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/`);
-  //   const snapshot = await ref.once('value');
-  //   const result = snapshot.val();
-  // }
-
   getAllExercisesToStore = async () => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises`);
     const snapshot = await ref.once('value');

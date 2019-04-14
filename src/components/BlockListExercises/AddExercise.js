@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './AddExercise.module.css';
 import { addAuthUserData } from '../../actions';
-// import { addExerciseToStoreExercise } from '../../actions';
 import { addAllExercisesToStore } from '../../actions';
 import { addSearchLabel } from '../../actions';
 import { bindActionCreators } from 'redux';
@@ -65,11 +64,10 @@ class AddExercise extends Component {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   addAuthUserData,
-  /*addExerciseToStoreExercise,*/
   addAllExercisesToStore,
   addSearchLabel
 }, dispatch);
 
-const mapStateToProps = (state) => (/*{ currentUser: state.main.currentUser },*/ { searchLabel: state.search.searchLabel });
+const mapStateToProps = (state) => ( { searchLabel: state.search.searchLabel });
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(AddExercise));
