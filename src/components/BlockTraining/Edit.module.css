@@ -1,0 +1,9 @@
+.edit {
+  border: 1px solid black;
+  padding: 3px;
+  width: 50px;
+}
+
+.edit input {
+  width: 40px;
+}

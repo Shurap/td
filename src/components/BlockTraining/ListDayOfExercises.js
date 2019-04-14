@@ -5,7 +5,6 @@ import styles from './ListDayOfExercises.module.css';
 
 class ListDayOfExercises extends Component {
 
-
   render() {
 
     const daysExercises = (this.props.dayExercises) ? this.props.dayExercises : {};

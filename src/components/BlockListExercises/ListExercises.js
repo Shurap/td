@@ -25,7 +25,7 @@ class ListExercise extends Component {
   onSentExercise = async (label) => {
 
     const today = new Date().toISOString().split('T')[0];
-    const data = { [label]: '33' };
+    const data = { [label]: [{wight: '0', count: '0'}] };
     try {
       await this.props.firebase.setDataToBase(`schedule/${today}/`, data);
       const exerciseToStore = await this.props.firebase.getTrainingExerciseToStore(label, today);

@@ -6,7 +6,9 @@ import styles from './DayOfExercises.module.css';
 
 class DayOfExercises extends Component {
 
-
+  onAddEdit = () => {
+    console.log('Click');
+  }
 
   render() {
 
@@ -17,7 +19,11 @@ class DayOfExercises extends Component {
     const arrayExercises = exercises.map((element, index) => {
       return (
         <div key={index}>
-          <TrainingExercise exercise={element}/>
+          <TrainingExercise 
+            exercise={element}
+            onAddEdit={this.onAddEdit}
+            dateOfDay={dateOfDay}
+          />
         </div>
       );
     });

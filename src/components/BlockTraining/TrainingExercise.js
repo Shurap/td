@@ -1,18 +1,23 @@
 import React, {Component} from 'react';
-import EditCount from './EditCount';
+import ListEdit from './ListEdit';
 import styles from './TrainingExercise.module.css';
 
 export default class TrainingExercise extends Component {
   
   render(){
   
-    const {exercise} = this.props;
+    const {exercise, dateOfDay} = this.props;
 
     return(
       <div className = {styles.trainingExercise}>
         <p>TrainingExercise</p>
+        <button>Del</button>
         {exercise}
-        <EditCount/>
+        <ListEdit 
+          dateOfDay={dateOfDay}
+          exercise={exercise}
+        />
+        <button onClick = {() => this.props.onAddEdit()}>Add</button>
       </div>
     )
   }
