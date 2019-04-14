@@ -31,6 +31,7 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
+            schedule: ''
           });
       })
       

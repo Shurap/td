@@ -29,6 +29,6 @@ class ListDayOfExercises extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ dayExercises: state.main.currentUser.shedule });
+const mapStateToProps = (state) => ({ dayExercises: state.main.currentUser.schedule });
 
 export default connect(mapStateToProps)(ListDayOfExercises);

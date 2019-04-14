@@ -10,20 +10,6 @@ class DayOfExercises extends Component {
 
   render() {
 
-    // const daysExercises = (this.props.dayExercises) ? this.props.dayExercises : {};
-    // const daysExercisesDates = Object.keys(daysExercises)
-    
-    // const arrayExercises = daysExercisesDates.map((element, index) => {
-    //   return (
-    //     <div key={index}>
-    //       <DayOfExercises dateOfDay={element}
-    //       />
-    //     </div>
-    //   );
-    // });
-
-
-
     const { dateOfDay } = this.props;
 
     const exercises = Object.keys(this.props.todayExercises[dateOfDay]);
@@ -47,6 +33,6 @@ class DayOfExercises extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ todayExercises: state.main.currentUser.shedule });
+const mapStateToProps = (state) => ({ todayExercises: state.main.currentUser.schedule });
 
 export default connect(mapStateToProps)(DayOfExercises);

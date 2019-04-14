@@ -5,13 +5,23 @@ class Test extends Component {
 
   testFunction = () => {
     const data = {
-      run3: {
-        date: (new Date()).toString(),
-        name: 'run',
-        data: ''
+      user: {
+        schedule: {
+          1: '11',
+          2: '22',
+          3: '33'
+        },
       }
     }
-    this.props.firebase.setData('exercises', data);
+    const newData = {4: '44'}
+    console.log('1 - ', data);
+    // console.log('2 - ', {...data, user: {...data.user, schedule: {...data.user.schedule, ...newData}}});
+    console.log('2 - ', data.user.schedule);
+    console.log('3 - ', {...data.user.schedule, ...newData})
+    // console.log('4 - ', {...data, ...data.user: {}});
+    
+
+
   }
 
   testFunction1 = () => {

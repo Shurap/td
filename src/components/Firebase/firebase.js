@@ -66,6 +66,17 @@ class Firebase {
     return data;
   }
 
+  getTrainingExerciseToStore = async (label, today) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/${today}/${label}`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    const data = {
+      [label]: result
+    }
+    return data;
+
+  }
+
   deleteExerciseFromBase = (nameExercise) => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/${nameExercise}`);
     ref.remove();
@@ -94,7 +105,7 @@ const base = {
       'email': 'sss@s.com',
       'username': 'sss',
 
-      'shedule': {
+      'schedule': {
 
         '15.05.19': {
           'nameEx1': {

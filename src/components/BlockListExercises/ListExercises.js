@@ -2,41 +2,76 @@ import React, { Component } from 'react';
 import Exercise from './Exercise';
 import { connect } from "react-redux";
 import styles from './ListExercises.module.css';
-import {addToTodayExercises} from '../../actions';
+import { addToScheduleExercise } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { withFirebase } from '../Firebase';
 
 class ListExercise extends Component {
 
+  state = {
+    error: null
+  }
+
   onSearch = (enterArray) => {
     if (this.props.searchLabel.length === 0) {
       return enterArray;
     }
-    const exitArray = enterArray.filter ((element) => {
+    const exitArray = enterArray.filter((element) => {
       return element.toLowerCase().indexOf(this.props.searchLabel.toLowerCase()) > -1;
     });
     return exitArray;
   }
-  
-  onSentExercise = (label) => {
- 
+
+  onSentExercise = async (label) => {
+
     const today = new Date().toISOString().split('T')[0];
-    const data = {[label]:''};
-    this.props.firebase.setDataToBase(`shedule/${today}/`, data);
-    
-    const arrTodayExercises = [...this.props.todayExercises];
-    const index = arrTodayExercises.findIndex(element => label === element);
-    index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
-    this.props.addToTodayExercises(arrTodayExercises);
-    
-  } 
-  
+    const data = { [label]: '33' };
+    try {
+      await this.props.firebase.setDataToBase(`schedule/${today}/`, data);
+      const exerciseToStore = await this.props.firebase.getTrainingExerciseToStore(label, today);
+      console.log(exerciseToStore)
+      this.props.addToScheduleExercise(exerciseToStore, today);
+
+    }
+    catch (error) {
+      this.setState({ error });
+    }
+
+    // const arrTodayExercises = [...this.props.todayExercises];
+    // const index = arrTodayExercises.findIndex(element => label === element);
+    // index !== -1 ? arrTodayExercises.splice(index, 1) : arrTodayExercises.push(label);
+    // this.props.addToTodayExercises(arrTodayExercises);
+
+
+
+
+    // onSubmit = async (e) => {
+    //   const data = {
+    //     [this.props.searchLabel]: {
+    //       date: (new Date()).toString(),
+    //       data: ''
+    //     }
+    //   }
+
+    //   try {
+    //     e.preventDefault();
+    //     await this.props.firebase.setDataToBase('exercises', data);
+    //     const allExercise = await this.props.firebase.getAllExercisesToStore();
+    //     this.props.addAllExercisesToStore(allExercise);
+    //   }
+
+    //   catch (error) {
+    //     this.setState({ error });
+    //   }
+    // }
+  }
+
   render() {
 
     const label = (this.props.currentListExercises) ? this.props.currentListExercises : {};
     const labelBeforeFilter = Object.keys(label);
     const labelAfterFilter = this.onSearch(labelBeforeFilter);
-    
+
     const arrayExercises = labelAfterFilter.map((element, index) => {
       return (
         <div key={index}>
@@ -57,12 +92,12 @@ class ListExercise extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ 
+const mapStateToProps = (state) => ({
   currentListExercises: state.main.currentUser.exercises,
   currentUser: state.main.currentUser,
-  todayExercises: state.exercises.todayExercises,
+  // todayExercises: state.exercises.todayExercises,
   searchLabel: state.search.searchLabel
 });
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addToTodayExercises }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addToScheduleExercise }, dispatch);
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(ListExercise));
