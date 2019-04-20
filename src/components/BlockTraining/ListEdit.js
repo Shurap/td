@@ -10,12 +10,15 @@ class ListEdit extends Component {
     const {dateOfDay, exercise} = this.props;
     const arrayOfEdit = this.props.currentListEdit[dateOfDay][exercise];
 
+    console.log('dateOfDay - ', dateOfDay, 'exercise - ', exercise, 'arrayOfEdit - ', arrayOfEdit);
+
     const arrayEdit = arrayOfEdit.map((element, index) => {
       return (
         <div key={index}>
           <Edit
             labelCount={element.count}
             labelWight={element.wight}
+            count={index}
           />
         </div>
       );

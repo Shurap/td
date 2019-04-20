@@ -3,6 +3,7 @@ import { USER_OUT } from '../constants';
 import { ADD_ALL_EXERCISES_TO_STORE } from '../constants';
 import { ADD_SEARCH_LABEL } from '../constants';
 import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
+import { ADD_ARRAY_EDITS } from '../constants';
 
 const defaultState = {
   currentUser: {
@@ -23,16 +24,36 @@ export function mainReducer(state = defaultState, action) {
           ...state.currentUser, ...action.exercises
         }
       };
-    case ADD_TO_SCHEDULE_EXERCISE: 
+    case ADD_TO_SCHEDULE_EXERCISE:
       return {
-        ...state, currentUser: {
-          ...state.currentUser, schedule: {
-            ...state.currentUser.schedule, [action.today]: {
-              ...state.currentUser.schedule[action.today], ...action.exercise
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          schedule: {
+            ...state.currentUser.schedule,
+            [action.today]: {
+              ...state.currentUser.schedule[action.today],
+              ...action.exercise
             }
           }
         }
       };
+    case ADD_ARRAY_EDITS:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          schedule: {
+            ...state.currentUser.schedule,
+            [action.dateOfDay]: {
+              ...state.currentUser.schedule[action.dateOfDay],
+              [action.exercise]: action.array,
+            }
+          }
+        }
+      }
+
+
     default:
       return state;
   }

@@ -26,8 +26,9 @@ class ListExercise extends Component {
 
     const today = new Date().toISOString().split('T')[0];
     const data = { [label]: [{wight: '0', count: '0'}] };
+    // const data = { [label]: {1:{wight: '0', count: '0'}} };
     try {
-      await this.props.firebase.setDataToBase(`schedule/${today}/`, data);
+      await this.props.firebase.updateDataToBase(`schedule/${today}/`, data);
       const exerciseToStore = await this.props.firebase.getTrainingExerciseToStore(label, today);
       this.props.addToScheduleExercise(exerciseToStore, today);
     }

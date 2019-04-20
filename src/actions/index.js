@@ -3,6 +3,7 @@ import { USER_OUT } from '../constants';
 import {ADD_ALL_EXERCISES_TO_STORE} from '../constants';
 import {ADD_SEARCH_LABEL} from '../constants';
 import {ADD_TO_SCHEDULE_EXERCISE} from '../constants';
+import {ADD_ARRAY_EDITS} from '../constants';
 
 export function addAuthUserData(currentUser) {
   return {
@@ -39,3 +40,13 @@ export function addToScheduleExercise(exercise, today) {
     today
   }
 }
+
+export function addArrayEdits(dateOfDay, exercise, array) {
+  return {
+    type: ADD_ARRAY_EDITS,
+    dateOfDay,
+    exercise,
+    array
+  }
+}
+

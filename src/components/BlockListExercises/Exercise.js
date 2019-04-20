@@ -23,7 +23,7 @@ class Exercise extends Component {
     try {
       e.preventDefault();
       //await this.props.firebase.setExercisesData(this.props.firebase.auth.currentUser.uid, data);
-      await this.props.firebase.setDataToBase('exercises', data);
+      await this.props.firebase.updateDataToBase('exercises', data);
       const user = await this.props.firebase.getWholeUser();
       this.props.addAuthUserData(user);
     }

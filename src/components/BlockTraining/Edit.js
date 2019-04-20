@@ -5,13 +5,14 @@ export default class Edit extends Component {
   
   render(){
 
-    const {labelCount, labelWight} = this.props
+    const {labelCount, labelWight, count} = this.props
   
 
 
     return(
       <div className={styles.edit}>
         <p>Edit</p>
+        <p>{count+1}</p>
         <input 
           type = "text"
           defaultValue={labelCount}

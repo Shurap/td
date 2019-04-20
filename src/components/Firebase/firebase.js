@@ -35,9 +35,14 @@ class Firebase {
     return result;
   }
 
-  setDataToBase = (pathInBase, data) => {
+  updateDataToBase = (pathInBase, data) => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
     ref.update(data);
+  }
+
+  setDataToBase = (pathInBase, data) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
+    ref.set(data);
   }
 
   getAllExercisesToStore = async () => {
@@ -58,7 +63,13 @@ class Firebase {
       [label]: result
     }
     return data;
+  }
 
+  getArrayEditFromBase = async (label, today) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/${today}/${label}`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    return result;
   }
 
   deleteExerciseFromBase = (nameExercise) => {

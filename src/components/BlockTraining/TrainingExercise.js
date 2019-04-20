@@ -7,6 +7,7 @@ export default class TrainingExercise extends Component {
   render(){
   
     const {exercise, dateOfDay} = this.props;
+    console.log('TrainingExercise: dateOfDay - ', dateOfDay, 'exercise - ', exercise);
 
     return(
       <div className = {styles.trainingExercise}>
@@ -17,7 +18,7 @@ export default class TrainingExercise extends Component {
           dateOfDay={dateOfDay}
           exercise={exercise}
         />
-        <button onClick = {() => this.props.onAddEdit()}>Add</button>
+        <button onClick = {() => this.props.onAddEdit(exercise, dateOfDay)}>Add</button>
       </div>
     )
   }
