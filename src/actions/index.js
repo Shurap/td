@@ -1,9 +1,10 @@
 import { ADD_AUTH_USER_DATA } from '../constants';
 import { USER_OUT } from '../constants';
-import {ADD_ALL_EXERCISES_TO_STORE} from '../constants';
-import {ADD_SEARCH_LABEL} from '../constants';
-import {ADD_TO_SCHEDULE_EXERCISE} from '../constants';
-import {ADD_ARRAY_EDITS} from '../constants';
+import { ADD_ALL_EXERCISES_TO_STORE } from '../constants';
+import { ADD_SEARCH_LABEL } from '../constants';
+import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
+import { ADD_ARRAY_EDITS } from '../constants';
+import { ADD_NUMBERS_TO_STORE} from '../constants';
 
 export function addAuthUserData(currentUser) {
   return {
@@ -50,3 +51,13 @@ export function addArrayEdits(dateOfDay, exercise, array) {
   }
 }
 
+export function addNumbersToStore(value, dateOfDay, exercise, name, count) {
+  return {
+    type: ADD_NUMBERS_TO_STORE,
+    value,
+    dateOfDay,
+    exercise,
+    name,
+    count
+  }
+}

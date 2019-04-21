@@ -14,7 +14,6 @@ class DayOfExercises extends Component {
     this.props.firebase.setDataToBase(`schedule/${dateOfDay}/${exercise}`, arrayEdit);
     
     arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
-    // console.log('!!!!!!!!!!!!!!!!!', arrayEdit);
     this.props.addArrayEdits(dateOfDay, exercise, arrayEdit);
   }
 
@@ -23,8 +22,6 @@ class DayOfExercises extends Component {
     const { dateOfDay } = this.props;
 
     const exercises = Object.keys(this.props.todayExercises[dateOfDay]);
-
-    console.log('DayOfExercise: dateOfDay -', dateOfDay, 'exercises - ', exercises);
 
     const arrayExercises = exercises.map((element, index) => {
       return (
@@ -37,7 +34,6 @@ class DayOfExercises extends Component {
         </div>
       );
     });
-
 
     return (
       <div className={styles.dayOfExercises}>
@@ -53,7 +49,3 @@ const mapStateToProps = (state) => ({ todayExercises: state.main.currentUser.sch
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addArrayEdits }, dispatch);
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(DayOfExercises));
-
-// const mapDispatchToProps = (dispatch) => bindActionCreators({ addToScheduleExercise }, dispatch);
-
-// export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(ListExercise));

@@ -9,8 +9,7 @@ class ListEdit extends Component {
 
     const {dateOfDay, exercise} = this.props;
     const arrayOfEdit = this.props.currentListEdit[dateOfDay][exercise];
-
-    console.log('dateOfDay - ', dateOfDay, 'exercise - ', exercise, 'arrayOfEdit - ', arrayOfEdit);
+    // console.log('array', arrayOfEdit);
 
     const arrayEdit = arrayOfEdit.map((element, index) => {
       return (
@@ -19,6 +18,8 @@ class ListEdit extends Component {
             labelCount={element.count}
             labelWight={element.wight}
             count={index}
+            dateOfDay={dateOfDay}
+            exercise={exercise}
           />
         </div>
       );
@@ -34,8 +35,5 @@ class ListEdit extends Component {
 }
 
 const mapStateToProps = (state) => ({currentListEdit: state.main.currentUser.schedule});
-// const mapDispatchToProps = (dispatch) => bindActionCreators({ addToScheduleExercise }, dispatch);
-
-// export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(ListExercise));
 
 export default connect(mapStateToProps)(ListEdit);
