@@ -26,7 +26,7 @@ class ListEdit extends Component {
     }); 
 
     return (
-      <div className={styles.listEdit}>
+      <div className={styles.listEdit} onClick={(e) => {console.log('ListEdit'); e.stopPropagation()}}>
         <p>ListEdit</p>
         {arrayEdit}
       </div>

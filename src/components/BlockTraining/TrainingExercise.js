@@ -14,7 +14,7 @@ class TrainingExercise extends Component {
     const {exercise, dateOfDay} = this.props;
 
     return(
-      <div className = {styles.trainingExercise}>
+      <div className = {styles.trainingExercise} onClick={(e) => {console.log('TrainingExercise'); e.stopPropagation()}}>
         <p>TrainingExercise</p>
         <button>Del</button>
         {exercise}
