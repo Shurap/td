@@ -8,6 +8,8 @@ import { addNumbersToStore } from '../../actions';
 
 class Edit extends Component {
   
+  onMouse = () => console.log(Edit.name);
+  
   onDeleteEdit = async (dateOfDay, exercise, count) => {
     let arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
     arrayEdit.splice(count, 1);
@@ -25,7 +27,7 @@ class Edit extends Component {
     const {labelCount, labelWight, count, dateOfDay, exercise} = this.props
   
     return(
-      <div className={styles.edit}>
+      <div className={styles.edit} onMouseOver = {this.onMouse}>
         <p>Edit</p>
         <button onClick = {() => this.onDeleteEdit(dateOfDay, exercise, count)}>Del</button>
         <p>{count+1}</p>
