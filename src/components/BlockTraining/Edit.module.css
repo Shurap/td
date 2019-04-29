@@ -1,9 +1,61 @@
 .edit {
-  border: 1px solid black;
-  padding: 3px;
-  width: 50px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+  border-radius: 2px;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  background-color: #6F8CA8;
 }
 
 .edit input {
-  width: 40px;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  width: 30px;
+  text-align: center;
+  font-size: 16px;
+}  
+
+.edit input:focus {
+    outline: none;    
+  }
+
+.buttonDel{
+  background: url('../../images/baseline-remove_circle_outline-24px.svg') no-repeat;
+}
+
+.buttonZoom{
+  background: url('../../images/baseline-zoom_out_map-24px.svg') no-repeat;
+}
+
+.edit .textCount {
+  font-size: 16px;
+  color: white;
+  margin: auto;
+}
+
+.edit .wrapperEdits {
+  display: flex;
+  height: 27px;
+  background-color: white;
+}
+
+.edit .wrapperButtons{
+  display: flex;
+  justify-content: space-between;
+  background: #2C3E50;
+  border-radius: 2px 2px 0 0;
+}
+
+.edit .wrapperText {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.wrapperText p {
+  font-size: 12px;
+  margin: 0;
+  color: white;
 }

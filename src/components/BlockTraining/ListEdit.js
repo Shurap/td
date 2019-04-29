@@ -13,7 +13,7 @@ class ListEdit extends Component {
 
     const arrayEdit = arrayOfEdit.map((element, index) => {
       return (
-        <div key={index}>
+        <div className={styles.wrapper} key={index}>
           <Edit
             labelCount={element.count}
             labelWight={element.wight}
@@ -27,7 +27,7 @@ class ListEdit extends Component {
 
     return (
       <div className={styles.listEdit} onClick={(e) => {console.log('ListEdit'); e.stopPropagation()}}>
-        <p>ListEdit</p>
+        {/* <p>ListEdit</p> */}
         {arrayEdit}
       </div>
     );

@@ -1,5 +1,11 @@
 .listEdit {
+  /* border: 1px solid black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
   display: flex;
-  border: 1px solid black;
-  padding: 2px;
+  flex-wrap: wrap;
 }
+
+/* .wrapper {
+  display: flex;
+  border: 1px solid green;
+} */

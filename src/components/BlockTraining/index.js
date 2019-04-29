@@ -8,8 +8,8 @@ export default class BlockTraining extends Component {
   render() {
     return (
       <div className={styles.block}>
-        <p>BlockTraining</p>
-        <Test/>
+        {/* <p>BlockTraining</p> */}
+        {/* <Test/> */}
         <ListDayOfExercises/>
       </div>
     )

@@ -1,0 +1,19 @@
+.app button {
+  background-color: #7E93A8;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+  border-radius: 2px;
+  border: 0px;
+  margin: 2px;
+  width: 25px;
+  height: 25px;
+}
+
+.app button:focus {
+  outline: none;    
+}
+
+/* .buttonDel{
+  background: url('../../images/baseline-clear-24px.svg') no-repeat;
+  width: 25px;
+  height: 25px;
+} */

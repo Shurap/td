@@ -10,9 +10,9 @@ class DayOfExercises extends Component {
 
   onAddEdit = async (exercise, dateOfDay) => {
     let arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
-    arrayEdit.push({wight: '0', count: '0'});
+    arrayEdit.push({ wight: '0', count: '0' });
     this.props.firebase.setDataToBase(`schedule/${dateOfDay}/${exercise}`, arrayEdit);
-    
+
     arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
     this.props.addArrayEdits(dateOfDay, exercise, arrayEdit);
   }
@@ -26,7 +26,7 @@ class DayOfExercises extends Component {
     const arrayExercises = exercises.map((element, index) => {
       return (
         <div key={index}>
-          <TrainingExercise 
+          <TrainingExercise
             exercise={element}
             onAddEdit={this.onAddEdit}
             dateOfDay={dateOfDay}
@@ -37,8 +37,11 @@ class DayOfExercises extends Component {
 
     return (
       <div className={styles.dayOfExercises}>
-        <p>DayOfExercises</p>
-        {dateOfDay}
+        {/* <p>DayOfExercises</p> */}
+        <div className={styles.wrappingUp}>
+          {dateOfDay}
+          <button></button>
+        </div>
         {arrayExercises}
       </div>
     )
