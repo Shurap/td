@@ -8,7 +8,8 @@ import { bindActionCreators } from 'redux';
 
 class DayOfExercises extends Component {
 
-  onAddEdit = async (exercise, dateOfDay) => {
+  onAddEdit = async (exercise, dateOfDay, arrayEdits) => {
+    this.onSaveAllEditsToBase(exercise, dateOfDay, arrayEdits);
     let arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
     arrayEdit.push({ wight: '0', count: '0' });
     this.props.firebase.setDataToBase(`schedule/${dateOfDay}/${exercise}`, arrayEdit);
@@ -16,6 +17,9 @@ class DayOfExercises extends Component {
     arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
     this.props.addArrayEdits(dateOfDay, exercise, arrayEdit);
   }
+
+  onSaveAllEditsToBase = (exercise, dateOfDay, arrayEdits) => 
+    this.props.firebase.updateDataToBase(`schedule/${dateOfDay}/${exercise}`, arrayEdits);
 
   render() {
 
@@ -29,6 +33,7 @@ class DayOfExercises extends Component {
           <TrainingExercise
             exercise={element}
             onAddEdit={this.onAddEdit}
+            onSaveAllEditsToBase={this.onSaveAllEditsToBase}
             dateOfDay={dateOfDay}
           />
         </div>
@@ -48,7 +53,7 @@ class DayOfExercises extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ todayExercises: state.main.currentUser.schedule });
+const mapStateToProps = (state) => ({todayExercises: state.main.currentUser.schedule});
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addArrayEdits }, dispatch);
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(DayOfExercises));

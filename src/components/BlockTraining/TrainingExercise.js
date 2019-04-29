@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 
 class TrainingExercise extends Component {
 
-  onSaveAllEditsToBase = (exercise, dateOfDay) =>
-    this.props.firebase.updateDataToBase(`schedule/${dateOfDay}/${exercise}`, this.props.arrayEdits);
+  // onSaveAllEditsToBase = (exercise, dateOfDay) => 
+  //   this.props.firebase.updateDataToBase(`schedule/${dateOfDay}/${exercise}`, this.props.arrayEdits);
 
   render() {
 
@@ -28,11 +28,12 @@ class TrainingExercise extends Component {
           <div className={styles.wrappingButton}>
             <button
               className={styles.buttonAdd}
-              onClick={() => this.props.onAddEdit(exercise, dateOfDay)}
+              onClick={() => this.props.onAddEdit(exercise, dateOfDay, this.props.arrayEdits)}
             ></button>
             <button
               className={styles.buttonSave}
-              onClick={() => this.onSaveAllEditsToBase(exercise, dateOfDay)}
+              // onClick={() => this.onSaveAllEditsToBase(exercise, dateOfDay)}
+              onClick={() => this.props.onSaveAllEditsToBase(exercise, dateOfDay, this.props.arrayEdits)}
             ></button>
           </div>
         </div>
@@ -46,4 +47,6 @@ const mapStateToProps = (state, ownProps) => {
   return { arrayEdits: state.main.currentUser.schedule[dateOfDay][exercise] };
 };
 
-export default connect(mapStateToProps)(withFirebase(TrainingExercise));
+export default withFirebase(connect(mapStateToProps)(TrainingExercise));
+
+// export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(DayOfExercises));
