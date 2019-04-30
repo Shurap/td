@@ -42,8 +42,7 @@ class DayOfExercises extends Component {
 
     return (
       <div className={styles.dayOfExercises}>
-        {/* <p>DayOfExercises</p> */}
-        <div className={styles.wrappingUp}>
+        <div className={styles.wrappingDate}>
           {dateOfDay}
           <button></button>
         </div>

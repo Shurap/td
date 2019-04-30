@@ -25,16 +25,16 @@ class Edit extends Component {
     const { labelCount, labelWight, count, dateOfDay, exercise } = this.props
 
     return (
-      <div className={styles.edit} onClick={(e) => { console.log('Edit'); e.stopPropagation() }}>
-        {/* <p>Edit</p> */}
-        <div className={styles.wrapperButtons}>
+      <div className={styles.edit}>
+        <div className={styles.wrapperButton}>
           <button className={styles.buttonDel} onClick={() => this.onDeleteEdit(dateOfDay, exercise, count)}></button>
-          {/* <button className={styles.buttonZoom}></button> */}
         </div>
-        <p className={styles.textCount}>{count + 1}</p>
+        <div className={styles.wrapperCount}>
+          <p>set {count + 1}</p>
+        </div>
         <div className={styles.wrapperText}>
-          <p>вес</p>
-          <p>раз</p>
+          <p>weight</p>
+          <p>repeat</p>
         </div>
         <div className={styles.wrapperEdits}>
           <input
@@ -44,7 +44,6 @@ class Edit extends Component {
             name={'count'}
             onChange={(e) => this.onChange(e, dateOfDay, exercise, count)}
           ></input>
-          {/* <p>/</p> */}
           <input
             type="text"
             defaultValue={labelWight}

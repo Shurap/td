@@ -36,7 +36,6 @@ class Firebase {
   }
 
   updateDataToBase = (pathInBase, data) => {
-    console.log(pathInBase, data);
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
     ref.update(data);
   }

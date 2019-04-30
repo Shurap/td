@@ -1,12 +1,9 @@
 .edit {
-  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, .4); */
-  border: 1px solid black;
   border-radius: 2px;
-  margin-left: 3px;
-  margin-bottom: 3px;
+  margin-left: 2px;
   display: flex;
   flex-direction: column;
-  background-color: #6F8CA8;
+  background-color: #0e151b;
 }
 
 .edit input {
@@ -16,6 +13,7 @@
   width: 30px;
   text-align: center;
   font-size: 16px;
+  color: #b17c2e;
 }  
 
 .edit input:focus {
@@ -23,41 +21,47 @@
   }
 
 .buttonDel{
-  background: url('../../images/outline_remove_circle_outline_white_24dp.png') no-repeat;
+  background: url('../../images/baseline-remove_circle_outline-24px.svg') no-repeat;
 }
-
-/* .buttonZoom{
-  background: url('../../images/baseline-zoom_out_map-24px.svg') no-repeat;
-} */
 
 .edit .textCount {
   font-size: 16px;
-  color: white;
   margin: auto;
 }
 
-.edit .wrapperEdits {
-  display: flex;
-  height: 27px;
-  background-color: white;
-}
-
-.edit .wrapperButtons{
+.edit .wrapperButton{
   display: flex;
   justify-content: flex-end;
-  background: #2C3E50;
-  border-radius: 2px 2px 0 0;
+  background-color: #282c39;
+  margin-top: 2px;
+}
+
+.edit .wrapperCount{
+  display: flex;
+  justify-content: center;
+  background-color: #282c39;
 }
 
 .edit .wrapperText {
   display: flex;
   justify-content: space-between;
-  margin-left: 4px;
-  margin-right: 4px;
+  background-color: #282c39;
+  margin-bottom: 2px;
+}
+
+.edit .wrapperEdits {
+  display: flex;
+  justify-content: space-between;
+  background-color: #282c39;
 }
 
 .wrapperText p {
   font-size: 12px;
-  margin: 0;
-  color: white;
+  margin: 2px;
+  color:#4a6f89;
+}
+
+.wrapperCount p {
+  margin: 2px;
+  color:#4a6f89
 }

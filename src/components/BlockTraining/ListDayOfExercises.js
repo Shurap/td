@@ -20,8 +20,7 @@ class ListDayOfExercises extends Component {
     });
 
     return (
-      <div className={styles.listDayOfExercises} onClick={(e) => { console.log('ListDayOfExercises'); e.stopPropagation() }}>
-        {/* <p>ListDayOfExercises</p> */}
+      <div className={styles.listDayOfExercises}>
         {arrayDays}
       </div>
     )

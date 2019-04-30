@@ -1,47 +1,46 @@
 .trainingExercise {
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
-  background: #7E93A8;
+  background-color: #0e151b;
   border-radius: 2px;
-  margin: 5px;
+  margin-top: 4px;
 }
 
-.trainingExercise .wrappingUp {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 3px;
-  /* border: 1px solid red; */
-  background: #2C3E50;
-  color: white;
-  margin-bottom: 3px;
-  border-radius: 2px 2px 0 0;
-  /* margin-top: 3px; */
-}
-
-/* .wrappingUp p {
-  color: white;
-} */
-
-.trainingExercise .wrappingDown {
-  display: flex;
-}
-
-.trainingExercise .wrappingButton {
+.trainingExercise .wrappingExercise {
   display: flex;
   flex-direction: column;
+  width: 120px;
+  min-width: 120px;
+  background: #282c39;
+  margin-top: 2px;
+}
+
+.trainingExercise .wrappingButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trainingExercise .wrappingSets {
+  display: flex;
+}
+
+.trainingExercise .wrappingExerciseName {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 2px;
+  color:#b17c2e;
+  font-size: 16px;
 }
 
 .buttonDel{
-  background: url('../../images/outline_clear_white_24dp.png') no-repeat;
+  background: url('../../images/baseline-clear-24px.svg');
+  align-self: flex-end;
 }
 
 .buttonAdd{
-  background: url('../../images/baseline-add_circle_outline-24px.svg') no-repeat;
+  background: url('../../images/baseline-add_circle_outline-24px.svg');
 }
 
 .buttonSave{
-  background: url('../../images/baseline-save-24px.svg') no-repeat;
+  background: url('../../images/baseline-save-24px.svg');
 }

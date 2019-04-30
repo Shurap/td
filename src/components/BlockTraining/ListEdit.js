@@ -9,7 +9,6 @@ class ListEdit extends Component {
 
     const {dateOfDay, exercise} = this.props;
     const arrayOfEdit = this.props.currentListEdit[dateOfDay][exercise];
-    // console.log('array', arrayOfEdit);
 
     const arrayEdit = arrayOfEdit.map((element, index) => {
       return (
@@ -26,8 +25,7 @@ class ListEdit extends Component {
     }); 
 
     return (
-      <div className={styles.listEdit} onClick={(e) => {console.log('ListEdit'); e.stopPropagation()}}>
-        {/* <p>ListEdit</p> */}
+      <div className={styles.listEdit}>
         {arrayEdit}
       </div>
     );

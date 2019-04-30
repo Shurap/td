@@ -1,19 +1,17 @@
 .dayOfExercises {
   display: flex;
   flex-direction: column;
-  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
-  background: #7E93A8;
+  background: #0e151b;
   border-radius: 2px;
-  margin: 5px;
+  margin: 6px;
 }
 
-.dayOfExercises .wrappingUp {
+.dayOfExercises .wrappingDate {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 3px;
-  background: #0E2134;
+  background: #3b3e4a;
   color: white;
-  margin-bottom: 3px;
   border-radius: 2px 2px 0 0;
 }
