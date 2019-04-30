@@ -1,7 +1,9 @@
 .edit {
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, .4); */
+  border: 1px solid black;
   border-radius: 2px;
-  margin: 1px;
+  margin-left: 3px;
+  margin-bottom: 3px;
   display: flex;
   flex-direction: column;
   background-color: #6F8CA8;
@@ -21,12 +23,12 @@
   }
 
 .buttonDel{
-  background: url('../../images/baseline-remove_circle_outline-24px.svg') no-repeat;
+  background: url('../../images/outline_remove_circle_outline_white_24dp.png') no-repeat;
 }
 
-.buttonZoom{
+/* .buttonZoom{
   background: url('../../images/baseline-zoom_out_map-24px.svg') no-repeat;
-}
+} */
 
 .edit .textCount {
   font-size: 16px;
@@ -42,7 +44,7 @@
 
 .edit .wrapperButtons{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   background: #2C3E50;
   border-radius: 2px 2px 0 0;
 }

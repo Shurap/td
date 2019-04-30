@@ -1,8 +1,9 @@
 .trainingExercise {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  background: white;
+  border: 1px solid black;
+  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+  background: #7E93A8;
   border-radius: 2px;
   margin: 5px;
 }
@@ -34,7 +35,7 @@
 }
 
 .buttonDel{
-  background: url('../../images/baseline-clear-24px.svg') no-repeat;
+  background: url('../../images/outline_clear_white_24dp.png') no-repeat;
 }
 
 .buttonAdd{

@@ -29,7 +29,7 @@ class Edit extends Component {
         {/* <p>Edit</p> */}
         <div className={styles.wrapperButtons}>
           <button className={styles.buttonDel} onClick={() => this.onDeleteEdit(dateOfDay, exercise, count)}></button>
-          <button className={styles.buttonZoom}></button>
+          {/* <button className={styles.buttonZoom}></button> */}
         </div>
         <p className={styles.textCount}>{count + 1}</p>
         <div className={styles.wrapperText}>
