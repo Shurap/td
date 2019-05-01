@@ -12,7 +12,7 @@ class ListEdit extends Component {
 
     const arrayEdit = arrayOfEdit.map((element, index) => {
       return (
-        <div className={styles.wrapper} key={index}>
+        <div className={styles.wrapper} key={element.id}>
           <Edit
             labelCount={element.count}
             labelWight={element.wight}

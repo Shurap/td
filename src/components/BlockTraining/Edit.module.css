@@ -21,7 +21,7 @@
   }
 
 .buttonDel{
-  background: url('../../images/baseline-remove_circle_outline-24px.svg') no-repeat;
+  background: url('../../images/baseline-remove_circle_outline-24px.svg');
 }
 
 .edit .textCount {

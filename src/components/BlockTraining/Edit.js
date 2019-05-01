@@ -20,6 +20,8 @@ class Edit extends Component {
     this.props.addNumbersToStore(e.target.value, dateOfDay, exercise, e.target.name, count);
   }
 
+  // componentDidMount ()
+
   render() {
 
     const { labelCount, labelWight, count, dateOfDay, exercise } = this.props
@@ -46,6 +48,7 @@ class Edit extends Component {
           ></input>
           <input
             type="text"
+            maxLength="3"
             defaultValue={labelWight}
             name={'wight'}
             onChange={(e) => this.onChange(e, dateOfDay, exercise, count)}

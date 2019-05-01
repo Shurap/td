@@ -9,9 +9,11 @@ import { bindActionCreators } from 'redux';
 class DayOfExercises extends Component {
 
   onAddEdit = async (exercise, dateOfDay, arrayEdits) => {
+    console.log('1', arrayEdits);
     this.onSaveAllEditsToBase(exercise, dateOfDay, arrayEdits);
     let arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
-    arrayEdit.push({ wight: '0', count: '0' });
+    const id = arrayEdit[arrayEdit.length-1].id
+    arrayEdit.push({ wight: '0', count: '0', id: id+1 });
     this.props.firebase.setDataToBase(`schedule/${dateOfDay}/${exercise}`, arrayEdit);
 
     arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
@@ -44,7 +46,7 @@ class DayOfExercises extends Component {
       <div className={styles.dayOfExercises}>
         <div className={styles.wrappingDate}>
           {dateOfDay}
-          <button></button>
+          <button className={styles.buttonDel}></button>
         </div>
         {arrayExercises}
       </div>

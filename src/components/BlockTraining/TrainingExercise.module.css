@@ -8,8 +8,8 @@
 .trainingExercise .wrappingExercise {
   display: flex;
   flex-direction: column;
-  width: 120px;
-  min-width: 120px;
+  width: 180px;
+  min-width: 180px;
   background: #282c39;
   margin-top: 2px;
 }
@@ -34,7 +34,6 @@
 
 .buttonDel{
   background: url('../../images/baseline-clear-24px.svg');
-  align-self: flex-end;
 }
 
 .buttonAdd{

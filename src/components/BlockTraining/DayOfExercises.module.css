@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   background: #0e151b;
-  border-radius: 2px;
   margin: 6px;
 }
 
@@ -12,6 +11,9 @@
   align-items: center;
   padding-left: 3px;
   background: #3b3e4a;
-  color: white;
-  border-radius: 2px 2px 0 0;
+  color: #4a6f89;
+}
+
+.buttonDel{
+  background: url('../../images/baseline-clear-24px.svg');
 }
