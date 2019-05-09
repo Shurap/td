@@ -5,3 +5,4 @@ export const ADD_SEARCH_LABEL = 'add_search_label';
 export const ADD_TO_SCHEDULE_EXERCISE = 'add_to_schedule_exercise';
 export const ADD_ARRAY_EDITS = 'add_array_edits';
 export const ADD_NUMBERS_TO_STORE = 'add_numbers_to_store';
+// export const CHANGE_STATUS_BUTTON_SAVE = 'change_status_button_save';

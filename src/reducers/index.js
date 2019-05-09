@@ -5,6 +5,7 @@ import { ADD_SEARCH_LABEL } from '../constants';
 import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
 import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
+// import { CHANGE_STATUS_BUTTON_SAVE } from '../constants';
 
 const defaultState = {
   currentUser: {
@@ -82,3 +83,12 @@ export function searchLabelReduser(state = { searchLabel: '' }, action) {
       return state;
   }
 }
+
+// export function statusButtonSave(state = { status: 'saved' }, action) {
+//   switch (action.type) {
+//     case CHANGE_STATUS_BUTTON_SAVE:
+//       return { ...state, status: action.status };
+//     default:
+//       return state;
+//   }
+// }

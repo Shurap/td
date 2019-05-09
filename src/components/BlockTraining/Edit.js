@@ -17,6 +17,7 @@ class Edit extends Component {
   }
 
   onChange = (e, dateOfDay, exercise, count) => {
+    this.props.onSetStatusButtonSave('ready');
     this.props.addNumbersToStore(e.target.value, dateOfDay, exercise, e.target.name, count);
   }
 
@@ -40,6 +41,7 @@ class Edit extends Component {
         </div>
         <div className={styles.wrapperEdits}>
           <input
+            className={styles.textInput}
             type="text"
             maxLength="3"
             defaultValue={labelCount}
@@ -47,6 +49,7 @@ class Edit extends Component {
             onChange={(e) => this.onChange(e, dateOfDay, exercise, count)}
           ></input>
           <input
+            className={styles.textInput}
             type="text"
             maxLength="3"
             defaultValue={labelWight}

@@ -19,6 +19,7 @@ class ListEdit extends Component {
             count={index}
             dateOfDay={dateOfDay}
             exercise={exercise}
+            onSetStatusButtonSave = {this.props.onSetStatusButtonSave}
           />
         </div>
       );

@@ -1,27 +1,26 @@
 .edit {
-  /* border-radius: 2px; */
+  composes: background_color-most_dark from '../../styles.css';
   margin-left: 2px;
   display: flex;
   flex-direction: column;
-  background-color: #0e151b;
 }
 
-.edit input {
+.textInput {
+  composes: color-active_text from '../../styles.css';
   background-color: transparent;
   border: none;
   box-sizing: border-box;
   width: 30px;
   text-align: center;
   font-size: 16px;
-  color: #b17c2e;
 }  
 
 .edit input:focus {
-    outline: none;    
-  }
+  outline: none;    
+}
 
 .buttonDel{
-  background: url('../../images/baseline-remove_circle_outline-24px.svg');
+  composes: background-image_button_del from '../../styles.css';
 }
 
 .edit .textCount {
@@ -29,39 +28,39 @@
   margin: auto;
 }
 
-.edit .wrapperButton{
+.wrapperButton{
+  composes: background_color-general_color from '../../styles.css';
   display: flex;
   justify-content: flex-end;
-  background-color: #282c39;
   margin-top: 2px;
 }
 
-.edit .wrapperCount{
+.wrapperCount{
+  composes: background_color-general_color from '../../styles.css';
+  composes: color-not_active_text from '../../styles.css';
   display: flex;
   justify-content: center;
-  background-color: #282c39;
 }
 
-.edit .wrapperText {
+.wrapperText {
+  composes: background_color-general_color from '../../styles.css';
+  composes: color-not_active_text from '../../styles.css';
   display: flex;
   justify-content: space-between;
-  background-color: #282c39;
+  font-size: 12px;
   margin-bottom: 2px;
 }
 
-.edit .wrapperEdits {
+.wrapperEdits {
+  composes: background_color-general_color from '../../styles.css';
   display: flex;
   justify-content: space-between;
-  background-color: #282c39;
 }
 
 .wrapperText p {
-  font-size: 12px;
   margin: 2px;
-  color:#4a6f89;
 }
 
 .wrapperCount p {
   margin: 2px;
-  color:#4a6f89
 }

@@ -32,14 +32,19 @@
   font-size: 16px;
 }
 
-.buttonDel{
+.buttonDel {
   background: url('../../images/baseline-clear-24px.svg');
 }
 
-.buttonAdd{
+.buttonAdd {
   background: url('../../images/baseline-add_circle_outline-24px.svg');
 }
 
-.buttonSave{
+.buttonSaved {
   background: url('../../images/baseline-save-24px.svg');
+}
+
+.buttonReady {
+  background: url('../../images/baseline-save-24px.svg');
+  background-color: #b17c2e;
 }

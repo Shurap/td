@@ -6,6 +6,12 @@ import { connect } from "react-redux";
 
 class TrainingExercise extends Component {
 
+  state = {
+    status: 'saved' //'saved''ready'
+  }
+
+  onSetStatusButtonSave = (statusValue) => {this.setState({...this.state, status: statusValue})};
+
   render() {
 
     const { exercise, dateOfDay } = this.props;
@@ -16,11 +22,17 @@ class TrainingExercise extends Component {
           <div className={styles.wrappingButtons}>
             <button
               className={styles.buttonAdd}
-              onClick={() => this.props.onAddEdit(exercise, dateOfDay, this.props.arrayEdits)}
+              onClick={() => {
+                this.props.onAddEdit(exercise, dateOfDay, this.props.arrayEdits);
+                this.onSetStatusButtonSave('saved');
+              }}
             ></button>
             <button
-              className={styles.buttonSave}
-              onClick={() => this.props.onSaveAllEditsToBase(exercise, dateOfDay, this.props.arrayEdits)}
+              className={(this.state.status === 'saved') ? styles.buttonSaved : styles.buttonReady}
+              onClick={() => {
+                this.props.onSaveAllEditsToBase(exercise, dateOfDay, this.props.arrayEdits);
+                this.onSetStatusButtonSave('saved');
+              }}
             ></button>
             <button className={styles.buttonDel}></button>
           </div>
@@ -32,6 +44,7 @@ class TrainingExercise extends Component {
           <ListEdit
             dateOfDay={dateOfDay}
             exercise={exercise}
+            onSetStatusButtonSave = {this.onSetStatusButtonSave}
           />
         </div>
       </div>

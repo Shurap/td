@@ -1,0 +1,19 @@
+.color-active_text {
+  color: #b17c2e;
+}
+
+.color-not_active_text {
+  color: #4a6f89;
+}
+
+.background_color-most_dark {
+  background-color: #0e151b;
+}
+
+.background_color-general_color {
+  background-color: #282c39;
+}
+
+.background-image_button_del {
+  background: url('./images/baseline-remove_circle_outline-24px.svg');
+}
