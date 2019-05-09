@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux';
 class DayOfExercises extends Component {
 
   onAddEdit = async (exercise, dateOfDay, arrayEdits) => {
-    console.log('1', arrayEdits);
     this.onSaveAllEditsToBase(exercise, dateOfDay, arrayEdits);
     let arrayEdit = await this.props.firebase.getArrayEditFromBase(exercise, dateOfDay);
     const id = arrayEdit[arrayEdit.length-1].id

@@ -1,13 +1,43 @@
 .fieldAddExercise {
-  background: #2c3e50;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: 1px solid black;
+  display: flex;
+  background: #282c39;
+  width: 190px;
+  margin-right: 6px;
+  margin-bottom: 2px;
 }
 
-.fieldAddExercise p {
-  font-size: 15px;
-  color: white;
+.wrapperForm input {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  width: 150px;
+  text-align: left;
+  font-size: 16px;
+  color: #b17c2e;
+  margin: 5px 5px 0 5px;
+} 
+
+.wrapperForm input:focus {
+  outline: none;    
+}
+
+.underEdit {
+  background-color: #b17c2e;
+  margin: 0 5px 10px 5px;
+  height: 1px;
+}
+
+.wrapperForm {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.buttonOnForm {
+  align-self: flex-end;
+  background: url('../../images/baseline-add_circle_outline-24px.svg');
+}
+
+.buttonCansel {
+  background: url('../../images/baseline-clear-24px.svg');
 }

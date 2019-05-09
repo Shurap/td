@@ -40,18 +40,6 @@ export function mainReducer(state = defaultState, action) {
         }
       };
     case ADD_ARRAY_EDITS:
-      // return {
-      //   ...state,
-      //   currentUser: {
-      //     ...state.currentUser,
-      //     schedule: {
-      //       ...state.currentUser.schedule,
-      //       [action.dateOfDay]: {
-      //         ...state.currentUser.schedule[action.dateOfDay],
-      //         [action.exercise]:action.array,
-      //       }
-      //     }
-      //   }
       return {
         ...state,
         currentUser: {

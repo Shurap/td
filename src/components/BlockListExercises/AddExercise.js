@@ -47,16 +47,20 @@ class AddExercise extends Component {
 
     return (
       <div className={styles.fieldAddExercise}>
-        <form /*className={styles.fieldAddExercise}*/
+        <form className={styles.wrapperForm}
           onSubmit={this.onSubmit}>
-          <p>AddExercise</p>
+          {/* <p>AddExercise</p> */}
+          <button className={styles.buttonOnForm}></button>
           <input type="text"
             onChange={this.onChange}
             value={this.props.searchLabel} />
-          <button>Add</button>
+          <span className={styles.underEdit}></span>  
           {error && <p>{error.message}</p>}
         </form>
-        <button onClick={this.onCancel}>Cancel</button>
+        <button 
+          className={styles.buttonCansel} 
+          onClick={this.onCancel}>
+        </button>
       </div>
     )
   }
@@ -68,6 +72,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   addSearchLabel
 }, dispatch);
 
-const mapStateToProps = (state) => ( { searchLabel: state.search.searchLabel });
+const mapStateToProps = (state) => ({ searchLabel: state.search.searchLabel });
 
 export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(AddExercise));
