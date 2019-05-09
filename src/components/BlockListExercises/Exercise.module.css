@@ -1,39 +1,29 @@
-.exersise {
-  background-color: #282c39;
-  border: 1px solid red;
+.exercise {
+  composes: background_color-general_color from '../../styles.css';
+  margin-bottom: 2px;
+  width: 190px;
+  height: 72px;
+  
 }
 
-
-
-
-/* .exercise_default {
-  margin: 5px;
-  background: #2c3e50;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: 1px solid black;
-  color: black;
+.wrappingButtons {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.exercise_selected {
-  margin: 5px;
-  background: #2c3e50;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: 1px solid black;
-  color: tomato;
+.buttonAdd{
+  composes: background-image_button_add from '../../styles.css';
 }
 
-.exercise_default p {
-  font-size: 15px;
-  color: white;
+.buttonDel{
+  composes: background-image_button_del from '../../styles.css';
 }
 
-.exercise_selected p {
-  font-size: 15px;
-  color: white;
-} */
+.wrappingExerciseName {
+  composes: color-active_text from '../../styles.css';
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 2px;
+  font-size: 16px;
+}

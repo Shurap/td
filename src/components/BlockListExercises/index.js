@@ -16,10 +16,11 @@ class BlockListExercises extends Component {
   render() {
 
     return (
-      // <div className={(this.state.visible) ? styles.block : styles.block_hidden}>
       <div className={styles.block}>
         <div className={(this.state.visible) ? styles.wrapperExercise : styles.wrapperExercise_hidden}>
-          {/* <p>BlockListExercises</p> */}
+          <div className={styles.up}>
+          <p>Search / Add exercise</p>
+          </div>
           <AddExercise />
           <ListExercises />
         </div>

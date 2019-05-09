@@ -17,3 +17,7 @@
 .background-image_button_del {
   background: url('./images/baseline-remove_circle_outline-24px.svg');
 }
+
+.background-image_button_add {
+  background: url('./images/baseline-add_circle_outline-24px.svg');
+}

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './Exercise.module.css';
 import { connect } from 'react-redux';
 import { withFirebase } from '../Firebase';
@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 class Exercise extends Component {
 
   state = {
-    // active: false,
     error: null
   }
 
@@ -20,28 +19,37 @@ class Exercise extends Component {
       this.props.addAllExercisesToStore(allExercise);
     }
     catch (error) {
-      this.setState({error});
+      this.setState({ error });
     }
   }
 
   render() {
 
-    const {label} = this.props;
-    const {error} = this.state;
+    const { label } = this.props;
+    const { error } = this.state;
 
     return (
-      // <div className={(this.state.active) ? styles.exercise_selected : styles.exercise_default}>
       <div className={styles.exercise}>
-        <p>Exercise</p>
-        {label}  
-        <button onClick={this.onDelete}>Del</button>
-        <button onClick={() => this.props.onSentExercise(label)}>Set</button>
+        {/* <p>Exercise</p> */}
+        <div className={styles.wrappingButtons}>
+          <button
+            className={styles.buttonDel}
+            onClick={this.onDelete}>
+          </button>
+          <button
+            className={styles.buttonAdd}
+            onClick={() => this.props.onSentExercise(label)}>
+          </button>
+        </div>
+        <div className={styles.wrappingExerciseName}>
+          {label}
+        </div>
         {error && <p>{error.message}</p>}
       </div>
     );
-  }  
+  }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({addAllExercisesToStore }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addAllExercisesToStore }, dispatch);
 
 export default withFirebase(connect(null, mapDispatchToProps)(Exercise));

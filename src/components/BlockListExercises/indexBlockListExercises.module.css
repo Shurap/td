@@ -1,5 +1,5 @@
 .block {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   margin: 6px;
 }
@@ -10,6 +10,7 @@
 
 .wrapperButton {
   background-color: #3b3e4a;
+  margin-left: 2px;
 }
 
 .wrapperExercise_hidden {
@@ -18,4 +19,22 @@
 
 .buttonToggle_hidden {
   background: url('../../images/baseline-skip_next-24px.svg');
+}
+
+.up {
+  background-color: #3b3e4a;
+  height: 27px;
+  margin: 0 0 6px 0;
+  width: 190px;
+
+  
+  composes: color-not_active_text from '../../styles.css';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.up p {
+  margin: 0;
 }

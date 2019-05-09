@@ -2,11 +2,12 @@
   display: flex;
   background: #282c39;
   width: 190px;
-  margin-right: 6px;
-  margin-bottom: 2px;
+  /* margin-right: 6px; */
+  margin-bottom: 6px;
 }
 
 .wrapperForm input {
+  
   background-color: transparent;
   border: none;
   box-sizing: border-box;
