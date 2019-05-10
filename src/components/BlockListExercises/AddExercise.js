@@ -51,7 +51,9 @@ class AddExercise extends Component {
           onSubmit={this.onSubmit}>
           {/* <p>AddExercise</p> */}
           <button className={styles.buttonOnForm}></button>
-          <input type="text"
+          <input 
+            className={styles.textInput}
+            type="text"
             onChange={this.onChange}
             value={this.props.searchLabel} />
           <span className={styles.underEdit}></span>  

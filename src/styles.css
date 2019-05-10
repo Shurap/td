@@ -14,10 +14,54 @@
   background-color: #282c39;
 }
 
+.background_color-most_light {
+  background-color: #3b3e4a;
+}
+
+.background_color-active_text {
+  background-color: #b17c2e;
+}
+
 .background-image_button_del {
   background: url('./images/baseline-remove_circle_outline-24px.svg');
 }
 
 .background-image_button_add {
   background: url('./images/baseline-add_circle_outline-24px.svg');
+}
+
+.background-image_button_minus {
+  background: url('./images/baseline-clear-24px.svg');
+}
+
+.background-image_button_save {
+  background: url('./images/baseline-save-24px.svg');
+}
+
+.background-image_button_arrow_down {
+  background: url('./images/baseline-arrow_downward-24px.svg');
+}
+
+.background-image_button_clear {
+  background: url('./images/baseline-layers_clear-24px.svg');
+}
+
+.background-image_button_arrow_forward {
+  background: url('./images/baseline-arrow_forward-24px.svg');
+}
+
+.background-image_button_toggle_previous {
+  background: url('./images/baseline-skip_previous-24px.svg');
+}
+
+.background-image_button_toggle_next {
+  background: url('./images/baseline-skip_next-24px.svg');
+}
+
+.background-image_button_check {
+  background: url('./images/baseline-check-24px.svg');
+}
+
+.background-image_button_out {
+  background: url('./images/baseline-redo-24px.svg');
 }

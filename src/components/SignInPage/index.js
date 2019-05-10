@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { addAuthUserData } from '../../actions';
 import { connect } from 'react-redux';
+import styles from './indexSignInPage.module.css';
 
 const INITIAL_STATE = {
   email: '',
@@ -23,7 +24,6 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
 
       .then(() => {
-        // this.props.firebase.getUserData('email', this.props.firebase.auth.currentUser.email)
         this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({ ...INITIAL_STATE });
@@ -52,27 +52,50 @@ class SignInFormBase extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-          autoComplete="on"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-          autoComplete="on"
-        />
-        <button disabled={isInvalid} type="submit">Sign In</button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className={styles.signIn}>
+        <form className={styles.form} onSubmit={this.onSubmit}>
+          <div className={styles.wrapperText}>
+            <p>Sign in</p>
+          </div>
+          <div className={styles.wrapperButtons}>
+            <button
+              className={(isInvalid) ? styles.buttonCheck : styles.buttonCheckActive}
+              // className={styles.buttonCheck}
+              // disabled={isInvalid}
+              type="submit">
+            </button>
+          </div>
+          <div className={styles.wrapperInputs}>
+            <input
+              className={styles.textInput}
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email Address"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+            <input
+              className={styles.textInput}
+              name="password"
+              value={password}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Password"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+          </div>
+          {error && <p>{error.message}</p>}
+        </form>
+        <div className={styles.wrapperButtonDown}>
+          <div>
+            <p>SignUp</p>
+          </div>
+          <button className={styles.buttonOut}></button>
+        </div>
+      </div>
     );
 
   }
@@ -84,7 +107,6 @@ const SignInForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(Sig
 
 const SignInPage = () => (
   <div>
-    <h2>Sign In Page</h2>
     <SignInForm />
   </div>
 );

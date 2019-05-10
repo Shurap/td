@@ -101,7 +101,10 @@ class SignUpFormBase extends Component {
           placeholder="Confirm Password"
           autoComplete="on"
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button 
+          disabled={isInvalid} 
+          type="submit">
+        </button>
         {error && <p>{error.message}</p>}
       </form>
     );

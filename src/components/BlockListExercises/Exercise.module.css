@@ -12,7 +12,7 @@
 }
 
 .buttonAdd{
-  composes: background-image_button_add from '../../styles.css';
+  composes: background-image_button_arrow_forward from '../../styles.css';
 }
 
 .buttonDel{

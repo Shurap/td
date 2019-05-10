@@ -1,20 +1,18 @@
 .fieldAddExercise {
+  composes: background_color-general_color from '../../styles.css';
   display: flex;
-  background: #282c39;
   width: 190px;
-  /* margin-right: 6px; */
   margin-bottom: 6px;
 }
 
-.wrapperForm input {
-  
+.textInput {
+  composes: color-active_text from '../../styles.css';
   background-color: transparent;
   border: none;
   box-sizing: border-box;
   width: 150px;
   text-align: left;
   font-size: 16px;
-  color: #b17c2e;
   margin: 5px 5px 0 5px;
 } 
 
@@ -23,7 +21,7 @@
 }
 
 .underEdit {
-  background-color: #b17c2e;
+  composes: background_color-active_text from '../../styles.css';
   margin: 0 5px 10px 5px;
   height: 1px;
 }
@@ -35,10 +33,10 @@
 }
 
 .buttonOnForm {
+  composes: background-image_button_arrow_down from '../../styles.css';
   align-self: flex-end;
-  background: url('../../images/baseline-add_circle_outline-24px.svg');
 }
 
 .buttonCansel {
-  background: url('../../images/baseline-clear-24px.svg');
+  composes: background-image_button_clear from '../../styles.css';
 }

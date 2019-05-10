@@ -1,50 +1,51 @@
 .trainingExercise {
+  composes: background_color-most_dark from '../../styles.css';
   display: flex;
-  background-color: #0e151b;
   border-radius: 2px;
   margin-top: 4px;
 }
 
-.trainingExercise .wrappingExercise {
+.wrappingExercise {
+  composes: background_color-general_color from '../../styles.css';
   display: flex;
   flex-direction: column;
   width: 180px;
   min-width: 180px;
-  background: #282c39;
   margin-top: 2px;
 }
 
-.trainingExercise .wrappingButtons {
+.wrappingButtons {
   display: flex;
   justify-content: flex-end;
 }
 
-.trainingExercise .wrappingSets {
+.wrappingSets {
   display: flex;
 }
 
-.trainingExercise .wrappingExerciseName {
+.wrappingExerciseName {
+  composes: color-active_text from '../../styles.css';
   display: flex;
   flex-grow: 1;
   align-items: center;
   padding: 2px;
-  color:#b17c2e;
   font-size: 16px;
 }
 
 .buttonDel {
-  background: url('../../images/baseline-clear-24px.svg');
+  composes: background-image_button_minus from '../../styles.css';
 }
 
 .buttonAdd {
-  background: url('../../images/baseline-add_circle_outline-24px.svg');
+  composes: background-image_button_add from '../../styles.css';
 }
 
 .buttonSaved {
-  background: url('../../images/baseline-save-24px.svg');
+  composes: background-image_button_save from '../../styles.css';
 }
 
 .buttonReady {
-  background: url('../../images/baseline-save-24px.svg');
+  composes: background-image_button_save from '../../styles.css';
+  /* composes: background_color-active_text from '../../styles.css'; */
   background-color: #b17c2e;
 }

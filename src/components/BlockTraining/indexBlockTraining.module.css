@@ -1,4 +1,4 @@
 .block {
+  composes: background_color-most_dark from '../../styles.css';
   width: 100%;
-  background-color: #0e151b;
 }

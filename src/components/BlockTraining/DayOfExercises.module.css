@@ -1,19 +1,19 @@
 .dayOfExercises {
+  composes: background_color-most_dark from '../../styles.css';
   display: flex;
   flex-direction: column;
-  background: #0e151b;
   margin: 6px;
 }
 
-.dayOfExercises .wrappingDate {
+.wrappingDate {
+  composes: background_color-most_light from '../../styles.css';
+  composes: color-not_active_text from '../../styles.css';
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 3px;
-  background: #3b3e4a;
-  color: #4a6f89;
 }
 
 .buttonDel{
-  background: url('../../images/baseline-clear-24px.svg');
+  composes: background-image_button_minus from '../../styles.css';
 }

@@ -22,6 +22,9 @@ class BlockListExercises extends Component {
           <p>Search / Add exercise</p>
           </div>
           <AddExercise />
+          <div className={styles.down}>
+          <p>List of exercises</p>
+          </div>
           <ListExercises />
         </div>
         <div className={styles.wrapperButton}>

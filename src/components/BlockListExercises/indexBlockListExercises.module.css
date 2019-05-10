@@ -1,15 +1,18 @@
 .block {
-  /* border: 1px solid green; */
   display: flex;
-  margin: 6px;
+  margin: 6px 0 6px 6px;
 }
 
 .buttonToggle {
-  background: url('../../images/baseline-skip_previous-24px.svg');
+  composes: background-image_button_toggle_previous from '../../styles.css';
+}
+
+.buttonToggle_hidden {
+  composes: background-image_button_toggle_next from '../../styles.css';
 }
 
 .wrapperButton {
-  background-color: #3b3e4a;
+  composes: background_color-most_light from '../../styles.css';
   margin-left: 2px;
 }
 
@@ -17,17 +20,11 @@
   display: none;
 }
 
-.buttonToggle_hidden {
-  background: url('../../images/baseline-skip_next-24px.svg');
-}
-
 .up {
-  background-color: #3b3e4a;
+  composes: background_color-most_light from '../../styles.css';
   height: 27px;
   margin: 0 0 6px 0;
   width: 190px;
-
-  
   composes: color-not_active_text from '../../styles.css';
   display: flex;
   justify-content: center;
@@ -36,5 +33,21 @@
 }
 
 .up p {
+  margin: 0;
+}
+
+.down {
+  composes: background_color-most_light from '../../styles.css';
+  height: 27px;
+  margin: 6px 0 2px 0;
+  width: 190px;
+  composes: color-not_active_text from '../../styles.css';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.down p {
   margin: 0;
 }
