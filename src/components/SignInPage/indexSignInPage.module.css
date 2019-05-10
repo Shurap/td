@@ -1,17 +1,17 @@
 .signIn {
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   composes: background_color-most_dark from '../../styles.css';
   width: 100%;
-  height: 500px;
 }
 
 .form {
   composes: background_color-general_color from '../../styles.css';
   width: 240px;
   padding: 10px;
+  margin-top: 10vh;
 }
 
 .wrapperText {
@@ -39,7 +39,6 @@
   composes: color-active_text from '../../styles.css';
   background-color: transparent;
   border: none;
-  /* width: 240px; */
   text-align: left;
   font-size: 16px;
   margin: 5px 5px 5px 5px;
@@ -51,7 +50,6 @@
 
 .underEdit {
   composes: background_color-active_text from '../../styles.css';
-  /* display: inline-block; */
   height: 1px;
   margin-bottom: 10px;
   transform: scale(0, 1);
