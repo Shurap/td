@@ -1,0 +1,33 @@
+/* .signOut {
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  composes: background_color-most_dark from '../../styles.css';
+  width: 100%;
+} */
+
+/* .signOut {
+  composes: background_color-general_color from '../../styles.css';
+  margin:auto;
+  width: 240px;
+  padding: 10px;
+  margin-top: 10vh;
+} */
+
+.signOut {
+  composes: background_color-general_color from '../../styles.css';
+  composes: color-not_active_text from '../../styles.css';
+  display: flex;
+  width: 240px;
+  margin: auto;
+  margin-top: 10vh;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 18px;
+}
+
+.buttonOut {
+  composes: background-image_button_out from '../../styles.css';
+}

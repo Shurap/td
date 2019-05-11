@@ -1,41 +1,48 @@
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .header {
     flex-wrap: wrap;
   }  
-  .header nav {
+} */
+ 
+  .header {
+    composes: background_color-general_color from '../../styles.css';
+    display: flex;
+    align-items: center;
+  } 
+
+  .nav {
+    /* border: 2px solid green; */
+    /* composes: color-not_active_text from '../../styles.css'; */
+    /*background: yellow;*/
+    display: flex;
+  }
+
+  .link {
+    composes: color-not_active_text from '../../styles.css';
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+  }
+  
+  /* .header nav {
     order: 2;
     width: 100%;
     background: #384f66;
-  }
-}
+  } */
 
-.header {
-  background: #2c3e50;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  /* color: #fff; */
-  display: flex;
-  align-items: center;
-}
 
-.header h1 {
-  /*background: blueviolet;*/
+/* .header h1 {
   padding: 10px;
   color: white;
   letter-spacing: 2px;
-}
+} */
 
-.header nav {
-  /*background: yellow;*/
-  display: flex;
-}
-
-.header a {
+/* .header a {
+  border: 1px solid red;
   text-transform: uppercase;
   text-decoration: none;
-  color: #CDD0D0;
   padding: 20px;
-  /* display: inline-block; */
-}
+} */
 
 .header div {
   /*background: green;*/
@@ -46,5 +53,5 @@
 
 .header p {
   padding-left: 10px;
-  color: white;
+  /* color: white; */
 }

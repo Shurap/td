@@ -11,7 +11,6 @@ class HomePage extends Component {
 
     return (
       <div className={styles.homePage}>
-        {/* <h2>Home Page</h2> */}
         <BlockListExercises />
         <BlockTraining />
       </div>

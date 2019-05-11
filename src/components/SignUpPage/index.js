@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import {withFirebase} from '../Firebase';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {addAuthUserData} from '../../actions';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { addAuthUserData } from '../../actions';
+import { connect } from 'react-redux';
+import styles from './indexSignUpPage.module.css';
 
 const INITIAL_STATE = {
   username: '',
@@ -15,17 +16,17 @@ const INITIAL_STATE = {
 
 class SignUpFormBase extends Component {
 
-  state = {...INITIAL_STATE};
+  state = { ...INITIAL_STATE };
 
   onSubmit = event => {
     event.preventDefault();
-    const {username, email, passwordOne} = this.state;
+    const { username, email, passwordOne } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-       
+
       .then(authUser => {
-        
+
         this.props.firebase
           .user(authUser.user.uid)
           .set({
@@ -34,21 +35,21 @@ class SignUpFormBase extends Component {
             schedule: ''
           });
       })
-      
+
       .then(() => {
         this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
-        this.setState({...INITIAL_STATE});
+        this.setState({ ...INITIAL_STATE });
         this.props.history.push('/home');
       })
-      
+
       .catch((error) => {
-        this.setState({error});
+        this.setState({ error });
       });
   };
 
   onChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -61,64 +62,80 @@ class SignUpFormBase extends Component {
       error,
     } = this.state;
 
-     const isInvalid =
+    const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-          autoComplete="on"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-          autoComplete="on"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-          autoComplete="on"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-          autoComplete="on"
-        />
-        <button 
-          disabled={isInvalid} 
-          type="submit">
-        </button>
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className={styles.signUp}>
+        <form className={styles.form} onSubmit={this.onSubmit}>
+          <div className={styles.wrapperText}>
+            <p>Sign up</p>
+          </div>
+          <div className={styles.wrapperButtons}>
+            <button
+              className={(isInvalid) ? styles.buttonCheck : styles.buttonCheckActive}
+              type="submit">
+            </button>
+          </div>
+          <div className={styles.wrapperInputs}>
+            <input
+              className={styles.textInput}
+              name="username"
+              value={username}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Full Name"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+            <input
+              className={styles.textInput}
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email Address"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+            <input
+              className={styles.textInput}
+              name="passwordOne"
+              value={passwordOne}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Password"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+            <input
+              className={styles.textInput}
+              name="passwordTwo"
+              value={passwordTwo}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Confirm Password"
+              autoComplete="off"
+            />
+            <span className={styles.underEdit}></span>
+          </div>
+          {error && <p>{error.message}</p>}
+        </form>
+      </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({addAuthUserData}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData }, dispatch);
 
 const SignUpForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignUpFormBase)));
 
 const SignUpPage = () => (
   <div>
-    <h2>Sign Up Page</h2>
-    <SignUpForm/>
+    <SignUpForm />
   </div>
 );
 

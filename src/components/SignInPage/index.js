@@ -5,13 +5,13 @@ import { bindActionCreators } from 'redux';
 import { addAuthUserData } from '../../actions';
 import { connect } from 'react-redux';
 import styles from './indexSignInPage.module.css';
-import { Redirect } from 'react-router'
+// import { Redirect } from 'react-router'
 
 const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
-  redirect: false
+  // redirect: false
 };
 
 class SignInFormBase extends Component {
@@ -19,7 +19,7 @@ class SignInFormBase extends Component {
   state = { ...INITIAL_STATE };
 
   onRedirect = () => {
-    this.setState({ ...this.state, redirect: true });
+    this.props.history.push('/signup');
   }
 
   onSubmit = event => {
@@ -57,9 +57,9 @@ class SignInFormBase extends Component {
       password === '' ||
       email === '';
 
-      if (this.state.redirect) {
-        return <Redirect push to='/signup'/>
-      }
+      // if (this.state.redirect) {
+      //   return <Redirect push to='/signup'/>
+      // }
 
     return (
       <div className={styles.signIn}>

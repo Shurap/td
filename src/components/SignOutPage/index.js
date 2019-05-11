@@ -3,18 +3,27 @@ import { withFirebase } from '../Firebase';
 import { bindActionCreators } from 'redux';
 import { userOut } from '../../actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import styles from './indexSignOutPage.module.css';
 
 class SignOutPage extends Component {
+
+  onOut = () => {
+    this.props.history.push('/signin');
+  }
+
   render() {
     return (
-      <div>
-        <h2>Sign Out Page</h2>
-        <button type="button" onClick={() => {
+      <div className={styles.signOut}>
+        <div>
+          <p>SignOut</p>
+        </div>
+        <button className={styles.buttonOut} type="button" onClick={() => {
           this.props.userOut();
           this.props.firebase.doSignOut();
+          this.onOut();
         }}>
-          Sign Out
-    </button>
+        </button>
       </div>
     );
   }
@@ -22,4 +31,4 @@ class SignOutPage extends Component {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ userOut }, dispatch);
 
-export default withFirebase(connect(null, mapDispatchToProps)(SignOutPage));
+export default withRouter(withFirebase(connect(null, mapDispatchToProps)(SignOutPage)));
