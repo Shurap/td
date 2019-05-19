@@ -77,6 +77,7 @@ class SignUpFormBase extends Component {
           <div className={styles.wrapperButtons}>
             <button
               className={(isInvalid) ? styles.buttonCheck : styles.buttonCheckActive}
+              disabled={isInvalid}
               type="submit">
             </button>
           </div>

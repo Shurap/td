@@ -32,9 +32,15 @@
   flex-grow: 1;
 }
 
+.buttonOnFormDisabled {
+  composes: background-image_button_arrow_down from '../../styles.css';
+  align-self: flex-end;
+}
+
 .buttonOnForm {
   composes: background-image_button_arrow_down from '../../styles.css';
   align-self: flex-end;
+  background-color: #b17c2e;
 }
 
 .buttonCansel {

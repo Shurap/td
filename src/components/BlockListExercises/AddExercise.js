@@ -11,7 +11,7 @@ class AddExercise extends Component {
 
   state = {
     error: null
-  }
+  } 
 
   onChange = (e) => {
     this.props.addSearchLabel(e.target.value);
@@ -44,13 +44,17 @@ class AddExercise extends Component {
   render() {
 
     const { error } = this.state;
+    const isInvalid = (this.props.searchLabel) ? false : true;
 
     return (
       <div className={styles.fieldAddExercise}>
         <form className={styles.wrapperForm}
           onSubmit={this.onSubmit}>
-          {/* <p>AddExercise</p> */}
-          <button className={styles.buttonOnForm}></button>
+          <button 
+            className={(isInvalid) ? styles.buttonOnFormDisabled : styles.buttonOnForm}
+            disabled={isInvalid}
+            title='Add new exercise to list'>
+          </button>
           <input 
             className={styles.textInput}
             type="text"
@@ -61,7 +65,8 @@ class AddExercise extends Component {
         </form>
         <button 
           className={styles.buttonCansel} 
-          onClick={this.onCancel}>
+          onClick={this.onCancel}
+          title='Clear filter'>
         </button>
       </div>
     )
