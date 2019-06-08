@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  composes: background_color-most_dark from '../../styles.css';
+  /* composes: background_color-most_dark from '../../styles.css'; */
   width: 100%;
 }
 

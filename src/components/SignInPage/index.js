@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { addAuthUserData } from '../../actions';
+import { addAuthUserData, changeAuthStatus } from '../../actions';
 import { connect } from 'react-redux';
 import styles from './indexSignInPage.module.css';
-// import { Redirect } from 'react-router'
 
 const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
-  // redirect: false
 };
 
 class SignInFormBase extends Component {
@@ -33,6 +31,9 @@ class SignInFormBase extends Component {
         this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({ ...INITIAL_STATE });
+        this.props.firebase.auth.onAuthStateChanged((authUser) => {
+            return (authUser) ? this.props.changeAuthStatus(true) : this.props.changeAuthStatus(false);
+          });
         this.props.history.push('/home');
       })
 
@@ -56,10 +57,6 @@ class SignInFormBase extends Component {
     const isInvalid =
       password === '' ||
       email === '';
-
-      // if (this.state.redirect) {
-      //   return <Redirect push to='/signup'/>
-      // }
 
     return (
       <div className={styles.signIn}>
@@ -113,7 +110,10 @@ class SignInFormBase extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ 
+  addAuthUserData,
+  changeAuthStatus
+ }, dispatch);
 
 const SignInForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignInFormBase)));
 

@@ -5,7 +5,7 @@ import { ADD_SEARCH_LABEL } from '../constants';
 import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
 import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
-// import { CHANGE_STATUS_BUTTON_SAVE } from '../constants';
+import { CHANGE_AUTH_STATUS } from '../constants'; 
 
 export function addAuthUserData(currentUser) {
   return {
@@ -63,9 +63,9 @@ export function addNumbersToStore(value, dateOfDay, exercise, name, count) {
   }
 }
 
-// export function changeStatusButtonSave(status) {
-//   return {
-//     type: CHANGE_STATUS_BUTTON_SAVE,
-//     status
-//   }
-// }
+export function changeAuthStatus(status) {
+  return {
+    type: CHANGE_AUTH_STATUS,
+    status
+  }
+}

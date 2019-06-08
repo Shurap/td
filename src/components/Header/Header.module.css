@@ -1,51 +1,26 @@
-/* @media (max-width: 600px) {
-  .header {
-    flex-wrap: wrap;
-  }  
-} */
- 
-  .header {
-    composes: background_color-general_color from '../../styles.css';
-    display: flex;
-    align-items: center;
-  } 
+.header {
+  composes: background_color-general_color from '../../styles.css';
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #0e151b;
+} 
 
-  .nav {
-    /* border: 2px solid green; */
-    /* composes: color-not_active_text from '../../styles.css'; */
-    /*background: yellow;*/
-    display: flex;
-  }
+.nav {
+  display: flex;
+}
 
-  .link {
-    composes: color-not_active_text from '../../styles.css';
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 20px;
-  }
-  
-  /* .header nav {
-    order: 2;
-    width: 100%;
-    background: #384f66;
-  } */
-
-
-/* .header h1 {
-  padding: 10px;
-  color: white;
-  letter-spacing: 2px;
-} */
-
-/* .header a {
-  border: 1px solid red;
+.link {
+  composes: color-not_active_text from '../../styles.css';
   text-transform: uppercase;
   text-decoration: none;
   padding: 20px;
-} */
+}
 
 .header div {
-  /*background: green;*/
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -53,5 +28,4 @@
 
 .header p {
   padding-left: 10px;
-  /* color: white; */
 }

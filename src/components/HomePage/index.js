@@ -3,6 +3,7 @@ import { withFirebase } from '../Firebase';
 import BlockListExercises from '../BlockListExercises';
 import BlockTraining from '../BlockTraining';
 import styles from './HomePage.module.css';
+import withAuth from '../../hocs/withAuth'    //'../../hocs/withAuth.js';
 
 
 class HomePage extends Component {
@@ -17,4 +18,4 @@ class HomePage extends Component {
     );
   }
 }
-export default withFirebase(HomePage);
+export default withAuth(withFirebase(HomePage));

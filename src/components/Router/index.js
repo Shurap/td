@@ -4,9 +4,10 @@ import SignUpPage from '../SignUpPage';
 import SignInPage from '../SignInPage';
 import SignOutPage from '../SignOutPage';
 import HomePage from '../HomePage';
+import styles from './indexRouter.module.css';
 
 const Router = () => (
-  <main>
+  <main className={styles.router}>
     <div>
       <Route exact path='/' component={SignInPage}/>
       <Route path='/signup' component={SignUpPage}/>
