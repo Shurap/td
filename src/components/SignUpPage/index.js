@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { addAuthUserData } from '../../actions';
+import { addAuthUserData, changeAuthStatus } from '../../actions';
 import { connect } from 'react-redux';
 import styles from './indexSignUpPage.module.css';
 
@@ -40,6 +40,9 @@ class SignUpFormBase extends Component {
         this.props.firebase.getWholeUser()
           .then((currentUserData) => this.props.addAuthUserData(currentUserData));
         this.setState({ ...INITIAL_STATE });
+        this.props.firebase.auth.onAuthStateChanged((authUser) => {
+          return (authUser) ? this.props.changeAuthStatus(true) : this.props.changeAuthStatus(false);
+        });
         this.props.history.push('/home');
       })
 
@@ -130,7 +133,10 @@ class SignUpFormBase extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addAuthUserData }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  addAuthUserData, 
+  changeAuthStatus
+}, dispatch);
 
 const SignUpForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignUpFormBase)));
 

@@ -113,7 +113,7 @@ class SignInFormBase extends Component {
 const mapDispatchToProps = (dispatch) => bindActionCreators({ 
   addAuthUserData,
   changeAuthStatus
- }, dispatch);
+}, dispatch);
 
 const SignInForm = withRouter(withFirebase(connect(null, mapDispatchToProps)(SignInFormBase)));
 
