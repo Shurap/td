@@ -1,0 +1,6 @@
+body {
+  /* composes: background_color-most_dark from '../src/styles.css'; */
+  background-color: #0e151b;
+  margin: 0;
+  /* margin-top: 100px; */
+}
