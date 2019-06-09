@@ -19,6 +19,10 @@
   composes: background-image_button_del from '../../styles.css';
 }
 
+.buttonInfo{
+  composes: background-image_button_info from '../../styles.css';
+}
+
 .wrappingExerciseName {
   composes: color-active_text from '../../styles.css';
   display: flex;

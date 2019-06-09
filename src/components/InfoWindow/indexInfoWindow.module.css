@@ -1,0 +1,11 @@
+.infoWindowFalse {
+  display: none;
+  border: 5px solid red;
+}
+
+.infoWindowTrue {
+  display: block;
+  position: absolute;
+  border: 5px solid red;
+  z-index: 1000;
+}

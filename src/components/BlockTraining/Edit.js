@@ -21,8 +21,6 @@ class Edit extends Component {
     this.props.addNumbersToStore(e.target.value, dateOfDay, exercise, e.target.name, count);
   }
 
-  // componentDidMount ()
-
   render() {
 
     const { labelCount, labelWight, count, dateOfDay, exercise } = this.props

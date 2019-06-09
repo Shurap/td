@@ -65,3 +65,7 @@
 .background-image_button_out {
   background: url('./images/baseline-redo-24px.svg');
 }
+
+.background-image_button_info {
+  background: url('./images/baseline-info-24px.svg');
+}

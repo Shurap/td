@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './AddExercise.module.css';
 import { addAuthUserData } from '../../actions';
 import { addAllExercisesToStore } from '../../actions';
-import { addSearchLabel } from '../../actions';
+import { addSearchLabel, changeShowStatusModal } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withFirebase } from '../Firebase';
@@ -34,6 +34,7 @@ class AddExercise extends Component {
       await this.props.firebase.updateDataToBase('exercises', data);
       const allExercise = await this.props.firebase.getAllExercisesToStore();
       this.props.addAllExercisesToStore(allExercise);
+      this.props.changeShowStatusModal(true, this.props.searchLabel, '');
     }
 
     catch (error) {
@@ -76,7 +77,8 @@ class AddExercise extends Component {
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   addAuthUserData,
   addAllExercisesToStore,
-  addSearchLabel
+  addSearchLabel,
+  changeShowStatusModal
 }, dispatch);
 
 const mapStateToProps = (state) => ({ searchLabel: state.search.searchLabel });

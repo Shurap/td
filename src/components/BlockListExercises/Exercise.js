@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './Exercise.module.css';
 import { connect } from 'react-redux';
 import { withFirebase } from '../Firebase';
-import { addAllExercisesToStore } from '../../actions';
+import { addAllExercisesToStore, changeShowStatusModal } from '../../actions';
 import { bindActionCreators } from 'redux';
 
 class Exercise extends Component {
@@ -23,6 +23,11 @@ class Exercise extends Component {
     }
   }
 
+  onShowModal = async () => {
+    const data = await this.props.firebase.getDataFromBase(`exercises/${this.props.label}/data`);
+    this.props.changeShowStatusModal(true, this.props.label, data);
+  }
+
   render() {
 
     const { label } = this.props;
@@ -30,8 +35,11 @@ class Exercise extends Component {
 
     return (
       <div className={styles.exercise}>
-        {/* <p>Exercise</p> */}
         <div className={styles.wrappingButtons}>
+          <button
+            className={styles.buttonInfo}
+            onClick={this.onShowModal}>
+          </button>
           <button
             className={styles.buttonDel}
             onClick={this.onDelete}>
@@ -50,6 +58,9 @@ class Exercise extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ addAllExercisesToStore }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ 
+  addAllExercisesToStore,
+  changeShowStatusModal 
+}, dispatch);
 
 export default withFirebase(connect(null, mapDispatchToProps)(Exercise));

@@ -45,6 +45,13 @@ class Firebase {
     ref.set(data);
   }
 
+  getDataFromBase = async (pathInBase) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/${pathInBase}`);
+    const snapshot = await ref.once('value');
+    const result = snapshot.val();
+    return result;
+  }
+
   getAllExercisesToStore = async () => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/exercises`);
     const snapshot = await ref.once('value');

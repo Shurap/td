@@ -6,6 +6,9 @@ import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
 import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
 import { CHANGE_AUTH_STATUS } from '../constants'; 
+import { CHANGE_SHOW_STATUS_MODAL } from '../constants';
+import { ADD_MODAL_DATA } from '../constants';
+
 
 export function addAuthUserData(currentUser) {
   return {
@@ -67,5 +70,21 @@ export function changeAuthStatus(status) {
   return {
     type: CHANGE_AUTH_STATUS,
     status
+  }
+}
+
+export function changeShowStatusModal(status, parent, data) {
+  return {
+    type: CHANGE_SHOW_STATUS_MODAL,
+    status,
+    parent,
+    data
+  }
+}
+
+export function addModalData(data) {
+  return {
+    type: ADD_MODAL_DATA,
+    data
   }
 }

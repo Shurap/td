@@ -32,6 +32,10 @@
   font-size: 16px;
 }
 
+.buttonInfo{
+  composes: background-image_button_info from '../../styles.css';
+}
+
 .buttonDel {
   composes: background-image_button_minus from '../../styles.css';
 }

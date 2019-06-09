@@ -6,6 +6,8 @@ import { ADD_TO_SCHEDULE_EXERCISE } from '../constants';
 import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
 import { CHANGE_AUTH_STATUS } from '../constants';
+import { CHANGE_SHOW_STATUS_MODAL } from '../constants';
+import { ADD_MODAL_DATA } from '../constants';
 
 const defaultState = {
   currentUser: {
@@ -84,11 +86,22 @@ export function searchLabelReduser(state = { searchLabel: '' }, action) {
   }
 }
 
-export function authStatus (state = {authStatus: false}, action) {
+export function authStatus(state = { authStatus: false }, action) {
   switch (action.type) {
     case CHANGE_AUTH_STATUS:
-      return {...state, authStatus: action.status};
+      return { ...state, authStatus: action.status };
     default:
-      return state;  
+      return state;
+  }
+}
+
+export function showModal(state = { showModal: false, data: '', parent: '' }, action) {
+  switch (action.type) {
+    case CHANGE_SHOW_STATUS_MODAL:
+      return { ...state, showModal: action.status, parent: action.parent, data: action.data };
+    case ADD_MODAL_DATA:
+      return { ...state, data: action.data };
+    default:
+      return state;
   }
 }

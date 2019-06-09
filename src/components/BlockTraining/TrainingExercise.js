@@ -3,6 +3,8 @@ import ListEdit from './ListEdit';
 import styles from './TrainingExercise.module.css';
 import { withFirebase } from '../Firebase';
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
+import { changeShowStatusModal } from '../../actions';
 
 class TrainingExercise extends Component {
 
@@ -10,7 +12,12 @@ class TrainingExercise extends Component {
     status: 'saved' //'saved''ready'
   }
 
-  onSetStatusButtonSave = (statusValue) => {this.setState({...this.state, status: statusValue})};
+  onSetStatusButtonSave = (statusValue) => { this.setState({ ...this.state, status: statusValue }) };
+
+  onShowModal = async () => {
+    const data = await this.props.firebase.getDataFromBase(`exercises/${this.props.exercise}/data`);
+    this.props.changeShowStatusModal(true, this.props.exercise, data);
+  }
 
   render() {
 
@@ -20,6 +27,10 @@ class TrainingExercise extends Component {
       <div className={styles.trainingExercise}>
         <div className={styles.wrappingExercise}>
           <div className={styles.wrappingButtons}>
+            <button
+              className={styles.buttonInfo}
+              onClick={this.onShowModal}>
+            </button>
             <button
               className={styles.buttonAdd}
               onClick={() => {
@@ -44,7 +55,7 @@ class TrainingExercise extends Component {
           <ListEdit
             dateOfDay={dateOfDay}
             exercise={exercise}
-            onSetStatusButtonSave = {this.onSetStatusButtonSave}
+            onSetStatusButtonSave={this.onSetStatusButtonSave}
           />
         </div>
       </div>
@@ -57,4 +68,6 @@ const mapStateToProps = (state, ownProps) => {
   return { arrayEdits: state.main.currentUser.schedule[dateOfDay][exercise] };
 };
 
-export default withFirebase(connect(mapStateToProps)(TrainingExercise));
+const mapDispatchToProps = (dispatch) => bindActionCreators({ changeShowStatusModal }, dispatch);
+
+export default withFirebase(connect(mapStateToProps, mapDispatchToProps)(TrainingExercise));
