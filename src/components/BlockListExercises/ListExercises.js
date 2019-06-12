@@ -56,7 +56,6 @@ class ListExercise extends Component {
 
     return (
       <div className={styles.fieldListExercises}>
-        {/* <p>ListExercises</p> */}
         {arrayExercises}
       </div>
     );

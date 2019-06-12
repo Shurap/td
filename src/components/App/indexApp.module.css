@@ -1,5 +1,4 @@
 .app {
-  /* composes: background_color-most_dark from '../../styles.css'; */
   height: 100vh;
 }
 
@@ -19,6 +18,10 @@
 
 .app button:hover {
   outline: 1px solid black;
+}
+
+.app text {
+  margin: 0px;
 }
 
 /* -------------------------------------- */

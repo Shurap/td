@@ -10,7 +10,5 @@ export default class BlockTraining extends Component {
         <ListDayOfExercises/>
       </div>
     )
-
   }
-
 }

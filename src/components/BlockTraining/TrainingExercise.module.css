@@ -50,6 +50,5 @@
 
 .buttonReady {
   composes: background-image_button_save from '../../styles.css';
-  /* composes: background_color-active_text from '../../styles.css'; */
   background-color: #b17c2e;
 }
