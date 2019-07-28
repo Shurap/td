@@ -7,14 +7,6 @@ import { withFirebase } from '../Firebase';
 
 class InfoWindow extends Component {
 
-  state = {
-    oldNameExercise: ''
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.oldNameExercise !== this.state.oldNameExercise) this.setState({ oldNameExercise: this.props.exerciseNameModal });
-  }
-
   onChangeData = (e) => {
     this.props.addModalInfoData(e.target.value);
   }
@@ -30,10 +22,6 @@ class InfoWindow extends Component {
     if (this.props.exerciseNameModal !== this.props.exerciseNewNameModal) {
       await this.props.firebase.findAndReplace(this.props.exerciseNameModal, this.props.exerciseNewNameModal);
     }
-    console.log('--------------------------------------');
-    // const allExercise = await this.props.firebase.getAllExercisesToStore();
-    // tis.props.addAllExercisesToStore(allExercise);
-
 
     this.props.firebase.getWholeUser()
       .then((currentUserData) => this.props.addAuthUserData(currentUserData));
@@ -68,19 +56,17 @@ class InfoWindow extends Component {
               </button>
             </div>
             <div className={styles.wrappingExerciseName}>
-
               <textarea
                 className={styles.textarea}
                 onChange={this.onChangeExerciseName}
                 value={this.props.exerciseNewNameModal}>
-
               </textarea>
             </div>
           </div>
           <textarea
             className={styles.textarea}
             onChange={this.onChangeData}
-            value={this.props.infoDataModal}>
+            value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
           </textarea>
         </div>
       </div>

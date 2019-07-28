@@ -87,41 +87,30 @@ class Firebase {
   findAndReplace = async (exerciseNameModal, exerciseNewNameModal) => {
     const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/`);
     const snapshot = await ref.once("value");
+
+    const refEx = this.db.ref(`user/${this.auth.currentUser.uid}/exercises/`);
+    const snapshotEx = await refEx.once("value");
+    const dataEx = snapshotEx.val()[exerciseNameModal];
+    await snapshotEx.ref.update({ [exerciseNewNameModal]: dataEx });
+    const deleteDataEx = snapshotEx.child(`${exerciseNameModal}`);
+    await deleteDataEx.ref.remove();
+
     const array = [];
 
-    snapshot.forEach(function(child) {
+    snapshot.forEach(function (child) {
       async function f() {
-
-
-
         let data = child.val()[exerciseNameModal];
         if (!data) return;
         await child.ref.update({ [exerciseNewNameModal]: data });
-  
+
         let deleteData = child.child(`${exerciseNameModal}`);
         await deleteData.ref.remove();
       }
       array.push(f());
-      console.log('array', array);
     });
+
     await Promise.all(array);
-    console.log('after promise.all');
   }
-
-
-  // findAndReplace = (exerciseNameModal, exerciseNewNameModal) => {
-  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/`);
-  //   ref.once("value", function (snapshot) {
-  //     snapshot.forEach(function (child) {
-
-  //       let data = child.val()[exerciseNameModal];
-  //       child.ref.update({[exerciseNewNameModal]: data});
-
-  //       let deleteData = child.child(`${exerciseNameModal}`);
-  //       deleteData.ref.remove();
-  //     })
-  //   })
-  // }
 }
 
 export default Firebase;
