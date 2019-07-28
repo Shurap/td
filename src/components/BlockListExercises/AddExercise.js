@@ -34,7 +34,7 @@ class AddExercise extends Component {
       await this.props.firebase.updateDataToBase('exercises', data);
       const allExercise = await this.props.firebase.getAllExercisesToStore();
       this.props.addAllExercisesToStore(allExercise);
-      this.props.changeShowStatusModal(true, this.props.searchLabel, '');
+      this.props.changeShowStatusModal(false, this.props.searchLabel, '');
     }
 
     catch (error) {
