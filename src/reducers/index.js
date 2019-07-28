@@ -7,7 +7,8 @@ import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
 import { CHANGE_AUTH_STATUS } from '../constants';
 import { CHANGE_SHOW_STATUS_MODAL } from '../constants';
-import { ADD_MODAL_DATA } from '../constants';
+import { ADD_MODAL_INFO_DATA } from '../constants';
+import { ADD_MODAL_EXERCISE_NAME } from '../constants';
 
 const defaultState = {
   currentUser: {
@@ -95,12 +96,14 @@ export function authStatus(state = { authStatus: false }, action) {
   }
 }
 
-export function showModal(state = { showModal: false, data: '', parent: '' }, action) {
+export function showModal(state = { showModal: false, infoData: '', exerciseName: '', exerciseNewName: '' }, action) {
   switch (action.type) {
     case CHANGE_SHOW_STATUS_MODAL:
-      return { ...state, showModal: action.status, parent: action.parent, data: action.data };
-    case ADD_MODAL_DATA:
-      return { ...state, data: action.data };
+      return { ...state, showModal: action.status, exerciseName: action.exerciseName, exerciseNewName: action.exerciseName, infoData: action.infoData };
+    case ADD_MODAL_INFO_DATA:
+      return { ...state, infoData: action.infoData };
+    case ADD_MODAL_EXERCISE_NAME:
+      return { ...state, exerciseNewName: action.newExerciseName };
     default:
       return state;
   }

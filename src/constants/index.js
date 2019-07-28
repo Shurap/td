@@ -7,4 +7,5 @@ export const ADD_ARRAY_EDITS = 'add_array_edits';
 export const ADD_NUMBERS_TO_STORE = 'add_numbers_to_store';
 export const CHANGE_AUTH_STATUS = 'change_auth_status';
 export const CHANGE_SHOW_STATUS_MODAL = 'change_show_status_modal';
-export const ADD_MODAL_DATA = 'add_modal_data';
+export const ADD_MODAL_INFO_DATA = 'add_modal_info_data';
+export const ADD_MODAL_EXERCISE_NAME = 'add_modal_exercise_name';

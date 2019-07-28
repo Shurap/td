@@ -84,6 +84,44 @@ class Firebase {
     ref.remove();
   }
 
+  findAndReplace = async (exerciseNameModal, exerciseNewNameModal) => {
+    const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/`);
+    const snapshot = await ref.once("value");
+    const array = [];
+
+    snapshot.forEach(function(child) {
+      async function f() {
+
+
+
+        let data = child.val()[exerciseNameModal];
+        if (!data) return;
+        await child.ref.update({ [exerciseNewNameModal]: data });
+  
+        let deleteData = child.child(`${exerciseNameModal}`);
+        await deleteData.ref.remove();
+      }
+      array.push(f());
+      console.log('array', array);
+    });
+    await Promise.all(array);
+    console.log('after promise.all');
+  }
+
+
+  // findAndReplace = (exerciseNameModal, exerciseNewNameModal) => {
+  //   const ref = this.db.ref(`user/${this.auth.currentUser.uid}/schedule/`);
+  //   ref.once("value", function (snapshot) {
+  //     snapshot.forEach(function (child) {
+
+  //       let data = child.val()[exerciseNameModal];
+  //       child.ref.update({[exerciseNewNameModal]: data});
+
+  //       let deleteData = child.child(`${exerciseNameModal}`);
+  //       deleteData.ref.remove();
+  //     })
+  //   })
+  // }
 }
 
 export default Firebase;

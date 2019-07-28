@@ -7,7 +7,8 @@ import { ADD_ARRAY_EDITS } from '../constants';
 import { ADD_NUMBERS_TO_STORE } from '../constants';
 import { CHANGE_AUTH_STATUS } from '../constants'; 
 import { CHANGE_SHOW_STATUS_MODAL } from '../constants';
-import { ADD_MODAL_DATA } from '../constants';
+import { ADD_MODAL_INFO_DATA } from '../constants';
+import { ADD_MODAL_EXERCISE_NAME } from '../constants';
 
 
 export function addAuthUserData(currentUser) {
@@ -73,18 +74,25 @@ export function changeAuthStatus(status) {
   }
 }
 
-export function changeShowStatusModal(status, parent, data) {
+export function changeShowStatusModal(status, exerciseName, infoData) {
   return {
     type: CHANGE_SHOW_STATUS_MODAL,
     status,
-    parent,
-    data
+    exerciseName,
+    infoData
   }
 }
 
-export function addModalData(data) {
+export function addModalInfoData(infoData) {
   return {
-    type: ADD_MODAL_DATA,
-    data
+    type: ADD_MODAL_INFO_DATA,
+    infoData,
+  }
+}
+
+export function addModalExerciseName(newExerciseName) {
+  return {
+    type: ADD_MODAL_EXERCISE_NAME,
+    newExerciseName
   }
 }
