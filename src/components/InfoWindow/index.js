@@ -4,6 +4,7 @@ import styles from './indexInfoWindow.module.css';
 import { bindActionCreators } from 'redux';
 import { changeShowStatusModal, addModalInfoData, addAllExercisesToStore, addModalExerciseName, addAuthUserData } from '../../actions';
 import { withFirebase } from '../Firebase';
+import HistoryBox from './HistoryBox';
 
 class InfoWindow extends Component {
 
@@ -68,6 +69,7 @@ class InfoWindow extends Component {
             onChange={this.onChangeData}
             value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
           </textarea>
+          <HistoryBox/>
         </div>
       </div>
     );

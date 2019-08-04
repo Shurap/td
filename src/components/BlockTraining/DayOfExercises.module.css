@@ -14,6 +14,20 @@
   padding-left: 3px;
 }
 
-.buttonDel{
-  composes: background-image_button_minus from '../../styles.css';
+.wrappingExercisesVisible {
+
+}
+
+.wrappingExercisesHidden {
+  display: none;
+}
+
+.buttonToggleDown {
+  composes: background-image_button_toggle_previous from '../../styles.css';
+  transform: rotate(-90deg);
+}
+
+.buttonToggleUp {
+  composes: background-image_button_toggle_previous from '../../styles.css';
+  transform: rotate(90deg);
 }
