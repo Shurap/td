@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withFirebase } from '../Firebase';
 import { addAllExercisesToStore, changeShowStatusModal } from '../../actions';
 import { bindActionCreators } from 'redux';
+import { take } from 'ramda';
 
 class Exercise extends Component {
 
@@ -50,7 +51,7 @@ class Exercise extends Component {
           </button>
         </div>
         <div className={styles.wrappingExerciseName}>
-          {label}
+          {`${take(40, label)}`}
         </div>
         {error && <p>{error.message}</p>}
       </div>
