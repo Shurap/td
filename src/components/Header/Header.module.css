@@ -1,12 +1,10 @@
 .header {
+  /* border: 5px solid yellow; */
   composes: background_color-general_color from '../../styles.css';
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
+  min-height: 70px;
+  max-height: 70px;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #0e151b;
 }
 
 .nav {
@@ -30,4 +28,18 @@
   padding-left: 10px;
   font-size: 20px;
   color: #b17c2e;
+}
+
+.logo {
+
+}
+
+.logo:before {
+  content: "training diary"
+}
+
+@media screen and (max-width: 700px) {
+  .logo:before {
+    content: "TD"
+  } 
 }

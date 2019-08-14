@@ -1,7 +1,5 @@
 .homePage {
+  /* border: 5px solid purple; */
   composes: background_color-most_dark from '../../styles.css';
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 80px;
 }

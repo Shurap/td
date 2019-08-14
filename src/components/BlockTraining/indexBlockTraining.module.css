@@ -1,4 +1,6 @@
 .block {
+  /* border: 2px solid orange; */
   composes: background_color-most_dark from '../../styles.css';
-  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
 }

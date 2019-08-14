@@ -1,6 +1,7 @@
 .block {
+  /* border: 5px solid red; */
   display: flex;
-  margin: 6px 0 6px 6px;
+  flex-direction: column;
 }
 
 .buttonToggle {
@@ -13,17 +14,22 @@
 
 .wrapperButton {
   composes: background_color-most_light from '../../styles.css';
-  margin-left: 2px;
+  /* border: 2px solid white; */
 }
 
 .wrapperExercise_hidden {
   display: none;
 }
 
+.wrapperExercise {
+  /* border: 5px solid green; */
+  overflow-y: scroll;
+}
+
 .up {
   composes: background_color-most_light from '../../styles.css';
   height: 27px;
-  margin: 0 0 6px 0;
+  margin: 6px 0 6px 0;
   width: 190px;
   composes: color-not_active_text from '../../styles.css';
   display: flex;
