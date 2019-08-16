@@ -1,15 +1,22 @@
 .trainingExercise {
+  border: 5px solid blueviolet;
   composes: background_color-most_dark from '../../styles.css';
   display: flex;
   border-radius: 2px;
   margin-top: 4px;
+  overflow-x: hidden;
+
+  /* max-height: 120px; */
+  flex-wrap: wrap;
 }
 
 .wrappingExercise {
+  border: 5px solid rgb(43, 226, 226);
   composes: background_color-general_color from '../../styles.css';
   display: flex;
   flex-direction: column;
-  width: 180px;
+  /* width: 180px; */
+  width: 100%;
   min-width: 180px;
   margin-top: 2px;
 }

@@ -1,6 +1,13 @@
 .block {
-  /* border: 2px solid orange; */
+  border: 5px solid orange;
   composes: background_color-most_dark from '../../styles.css';
   flex-grow: 1;
-  overflow: auto;
+  overflow-y: auto;
 }
+
+/* @media (max-width: 600px) {
+  .block {
+      width: 5px;
+      display: none;
+  }
+} */

@@ -1,4 +1,5 @@
 .listEdit {
+  border: 5px solid blue;
   display: flex;
   flex-wrap: wrap;
 }

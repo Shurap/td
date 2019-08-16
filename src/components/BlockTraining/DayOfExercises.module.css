@@ -1,8 +1,10 @@
 .dayOfExercises {
+  border: 5px solid red;
   composes: background_color-most_dark from '../../styles.css';
   display: flex;
   flex-direction: column;
   margin: 6px;
+  overflow-x: hidden;
 }
 
 .wrappingDate {

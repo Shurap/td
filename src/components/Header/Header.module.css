@@ -1,5 +1,5 @@
 .header {
-  /* border: 5px solid yellow; */
+  border: 5px solid yellow;
   composes: background_color-general_color from '../../styles.css';
   min-height: 70px;
   max-height: 70px;

@@ -1,4 +1,5 @@
 .edit {
+  border: 5px solid greenyellow;
   composes: background_color-most_dark from '../../styles.css';
   margin-left: 2px;
   display: flex;
