@@ -1,8 +1,14 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_one, _darkcolor, _whitecolor, _textcolor, _blackcolor from colors;
+
 .exercise {
-  composes: background_color-general_color from '../../styles.css';
-  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  background-color: _backgroundcolor_one;
+  border: 1px solid _darkcolor;
+  margin: 0 0 6px 6px;
   width: 190px;
-  height: 72px;
+  height: 76px;
 }
 
 .wrappingButtons {
@@ -11,19 +17,22 @@
 }
 
 .buttonAdd{
-  composes: background-image_button_arrow_forward from '../../styles.css';
+  composes: background-image_button_arrow_forward from '../../globalCSS/images.css';
 }
 
 .buttonDel{
-  composes: background-image_button_del from '../../styles.css';
+  composes: background-image_button_del from '../../globalCSS/images.css';
 }
 
 .buttonInfo{
-  composes: background-image_button_info from '../../styles.css';
+  composes: background-image_button_info from '../../globalCSS/images.css';
 }
 
 .wrappingExerciseName {
-  composes: color-active_text from '../../styles.css';
+  border: 1px solid _darkcolor;
+  color: _blackcolor;
+  border-radius: 4px;
+  margin: 4px;
   display: flex;
   flex-grow: 1;
   align-items: center;

@@ -1,48 +1,64 @@
-.fieldAddExercise {
-  composes: background_color-general_color from '../../styles.css';
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_one, _darkcolor, _blackcolor, _textcolor, _active_buttoncolor from colors;
+
+.addExercise {
   display: flex;
+  flex-direction: column;
+  border: 1px solid _darkcolor;
+  background-color: _backgroundcolor_one;
   width: 190px;
-  margin-bottom: 6px;
+  margin: 0 6px 0 6px;
 }
 
-.textInput {
-  composes: color-active_text from '../../styles.css';
-  background-color: transparent;
-  border: none;
-  box-sizing: border-box;
-  width: 150px;
-  text-align: left;
-  font-size: 16px;
-  margin: 5px 5px 0 5px;
-} 
-
-.wrapperForm input:focus {
-  outline: none;    
-}
-
-.underEdit {
-  composes: background_color-active_text from '../../styles.css';
-  margin: 0 5px 10px 5px;
-  height: 1px;
+.wrapperButton {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .wrapperForm {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+}
+
+.wrapperForm input:focus {
+  outline: none;    
+}
+
+.textInput {
+  color: _blackcolor;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  margin: 5px 5px 0 5px;
+}
+
+.wrapperNameField {
+  height: 27px;
+  color: _textcolor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.underEdit {
+  background-color: _darkcolor;
+  margin: 0 5px 10px 5px;
+  height: 1px;
 }
 
 .buttonOnFormDisabled {
-  composes: background-image_button_arrow_down from '../../styles.css';
+  composes: background-image_button_arrow_down from '../../globalCSS/images.css';
   align-self: flex-end;
 }
 
 .buttonOnForm {
-  composes: background-image_button_arrow_down from '../../styles.css';
+  composes: background-image_button_arrow_down from '../../globalCSS/images.css';
   align-self: flex-end;
-  background-color: #b17c2e;
+  background-color: _active_buttoncolor;
 }
 
 .buttonCansel {
-  composes: background-image_button_clear from '../../styles.css';
+  composes: background-image_button_clear from '../../globalCSS/images.css';
 }

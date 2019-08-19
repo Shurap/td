@@ -19,18 +19,15 @@ class BlockListExercises extends Component {
       <div className={styles.block}>
         <div className={styles.wrapperButton}>
           <button
-            className={(this.state.visible) ? styles.buttonToggle : styles.buttonToggle_hidden}
+            className={(this.state.visible) ? styles.buttonToggle_visible : styles.buttonToggle_hidden}
             onClick={this.onToggleVisible}>
           </button>
         </div>
-        <div className={(this.state.visible) ? styles.wrapperExercise : styles.wrapperExercise_hidden}>
+        <div className={(this.state.visible) ? styles.wrapperExercise_visible : styles.wrapperExercise_hidden}>
           <div>
-            <div className={styles.up}>
-              <p>Search / Add exercise</p>
-            </div>
             <AddExercise />
           </div>
-          <div className={styles.down}>
+          <div className={styles.wrapperHat}>
             <p>List of exercises</p>
           </div>
           <ListExercises />

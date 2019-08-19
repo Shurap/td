@@ -1,6 +1,10 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _backgroundcolor_two, _darkcolor, _textcolor, _blackcolor from colors;
+
 .header {
-  border: 5px solid yellow;
-  composes: background_color-general_color from '../../styles.css';
+  border: 1px solid _darkcolor;
+  /* border: 5px solid red; */
+  background-color: _backgroundcolor;
   min-height: 70px;
   max-height: 70px;
   display: flex;
@@ -12,26 +16,31 @@
 }
 
 .link {
-  composes: color-not_active_text from '../../styles.css';
+  /* border: 5px solid green; */
+  color: _textcolor;
   text-transform: uppercase;
   text-decoration: none;
   padding: 20px;
 }
 
 .header div {
+  /* border: 5px solid blue; */
   margin-left: auto;
   display: flex;
   align-items: center;
 }
 
 .header p {
+  /* border: 5px solid violet; */
   padding-left: 10px;
   font-size: 20px;
-  color: #b17c2e;
+  color: _blackcolor;
 }
 
 .logo {
-
+  /* border: 5px solid yellow; */
+  margin: 5px;
+  color: _textcolor;
 }
 
 .logo:before {

@@ -1,3 +1,6 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _darkcolor, _whitecolor from colors;
+
 .app {
   /* border: 5px solid blue; */
   display: flex;
@@ -6,13 +9,16 @@
 }
 
 .app button {
+  /* box-sizing: border-box; */
   padding: 0px;
   border: 0px;
   margin: 2px;
   width: 25px;
   height: 25px;
   cursor: pointer;
-  border-radius: 2px;
+  /* border-radius: 2px; */
+  border: 1px solid _backgroundcolor;
+  border-radius: 3px;
 }
 
 .app button:focus {
@@ -20,11 +26,28 @@
 }
 
 .app button:hover {
-  outline: 1px solid black;
+  box-sizing: border-box;
+  /* outline: 1px solid black; */
+  border: 1px solid _darkcolor;
+  border-radius: 3px;
 }
 
 .app text {
   margin: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  margin: 6px;
+}
+
+::-webkit-scrollbar-thumb{
+  border: 1px solid _darkcolor;
+  background-color: _backgroundcolor;
+}
+
+::-webkit-scrollbar-track {
+  background-color: _whitecolor;
 }
 
 /* -------------------------------------- */

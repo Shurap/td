@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class HistoryBox extends Component {
 
 
   render() {
-    return(
+
+    console.log(this.props.threeExercises);
+
+    return (
       <div>
         HistoryBox
       </div>
@@ -12,4 +16,8 @@ class HistoryBox extends Component {
   }
 }
 
-export default HistoryBox;
+const mapStateToProps = (state) => ({
+  threeExercises: state.main.currentUser.schedule
+});
+
+export default connect(mapStateToProps)(HistoryBox);

@@ -1,29 +1,31 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _backgroundcolor_three, _darkcolor, _textcolor, _blackcolor, _whitecolor from colors;
+
 .trainingExercise {
-  border: 5px solid blueviolet;
-  composes: background_color-most_dark from '../../styles.css';
+  /* border: 5px solid blueviolet; */
+  background-color: _whitecolor;
   display: flex;
   border-radius: 2px;
   margin-top: 4px;
   overflow-x: hidden;
-
-  /* max-height: 120px; */
   flex-wrap: wrap;
 }
 
 .wrappingExercise {
-  border: 5px solid rgb(43, 226, 226);
-  composes: background_color-general_color from '../../styles.css';
+  background-color: _backgroundcolor_three;
+  border: 1px solid _darkcolor;
+  /* border: 5px solid red; */
   display: flex;
   flex-direction: column;
-  /* width: 180px; */
   width: 100%;
   min-width: 180px;
   margin-top: 2px;
 }
 
 .wrappingButtons {
+  /* border: 5px solid green; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .wrappingSets {
@@ -31,7 +33,11 @@
 }
 
 .wrappingExerciseName {
-  composes: color-active_text from '../../styles.css';
+  color: _blackcolor;
+  border: 1px solid _darkcolor;
+  border-radius: 4px;
+  margin: 4px;
+  overflow: hidden;
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -40,22 +46,22 @@
 }
 
 .buttonInfo{
-  composes: background-image_button_info from '../../styles.css';
+  composes: background-image_button_info from '../../globalCSS/images.css';
 }
 
 .buttonDel {
-  composes: background-image_button_minus from '../../styles.css';
+  composes: background-image_button_minus from '../../globalCSS/images.css';
 }
 
 .buttonAdd {
-  composes: background-image_button_add from '../../styles.css';
+  composes: background-image_button_add from '../../globalCSS/images.css';
 }
 
 .buttonSaved {
-  composes: background-image_button_save from '../../styles.css';
+  composes: background-image_button_save from '../../globalCSS/images.css';
 }
 
 .buttonReady {
-  composes: background-image_button_save from '../../styles.css';
-  background-color: #b17c2e;
+  composes: background-image_button_save from '../../globalCSS/images.css';
+  background-color: _darkcolor;
 }

@@ -1,13 +1,18 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _darkcolor, _textcolor, _blackcolor from colors;
+
+
 .edit {
-  border: 5px solid greenyellow;
-  composes: background_color-most_dark from '../../styles.css';
-  margin-left: 2px;
+  background-color: _backgroundcolor;
+  border: 1px solid _darkcolor;
+  margin-right: 2px;
+  margin-top: 2px;
   display: flex;
   flex-direction: column;
 }
 
 .textInput {
-  composes: color-active_text from '../../styles.css';
+  color: _blackcolor;
   background-color: transparent;
   border: none;
   box-sizing: border-box;
@@ -21,7 +26,7 @@
 }
 
 .buttonDel{
-  composes: background-image_button_del from '../../styles.css';
+  composes: background-image_button_del from '../../globalCSS/images.css';
 }
 
 .edit .textCount {
@@ -30,22 +35,22 @@
 }
 
 .wrapperButton{
-  composes: background_color-general_color from '../../styles.css';
+  /* border: 1px solid red; */
   display: flex;
   justify-content: flex-end;
   margin-top: 2px;
 }
 
 .wrapperCount{
-  composes: background_color-general_color from '../../styles.css';
-  composes: color-not_active_text from '../../styles.css';
+  /* border: 1px solid green; */
+  color: _textcolor;
   display: flex;
   justify-content: center;
 }
 
 .wrapperText {
-  composes: background_color-general_color from '../../styles.css';
-  composes: color-not_active_text from '../../styles.css';
+  /* border: 1px solid blue; */
+  color: _textcolor;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -53,7 +58,9 @@
 }
 
 .wrapperEdits {
-  composes: background_color-general_color from '../../styles.css';
+  border: 1px solid _darkcolor;
+  border-radius: 4px;
+  margin: 1px;
   display: flex;
   justify-content: space-between;
 }

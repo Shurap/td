@@ -1,6 +1,10 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _whitecolor, _darkcolor, _textcolor from colors;
+
 .dayOfExercises {
-  border: 5px solid red;
-  composes: background_color-most_dark from '../../styles.css';
+  background-color: _whitecolor;
+  border: 1px solid _darkcolor;
+  /* border: 5px solid red; */
   display: flex;
   flex-direction: column;
   margin: 6px;
@@ -8,8 +12,9 @@
 }
 
 .wrappingDate {
-  composes: background_color-most_light from '../../styles.css';
-  composes: color-not_active_text from '../../styles.css';
+  background-color: _darkcolor;
+  /* border: 5px solid yellow; */
+  color: _textcolor;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +22,8 @@
 }
 
 .wrappingExercisesVisible {
-
+  /* border: 5px solid green; */
+  margin: 2px;
 }
 
 .wrappingExercisesHidden {
@@ -25,11 +31,11 @@
 }
 
 .buttonToggleDown {
-  composes: background-image_button_toggle_previous from '../../styles.css';
+  composes: background-image_button_toggle_previous from '../../globalCSS/images.css';
   transform: rotate(-90deg);
 }
 
 .buttonToggleUp {
-  composes: background-image_button_toggle_previous from '../../styles.css';
+  composes: background-image_button_toggle_previous from '../../globalCSS/images.css';
   transform: rotate(90deg);
 }

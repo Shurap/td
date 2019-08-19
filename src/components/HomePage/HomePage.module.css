@@ -1,5 +1,9 @@
+@value colors: "../../globalCSS/colors.css";
+@value _whitecolor from colors;
+
 .homePage {
   /* border: 5px solid purple; */
-  composes: background_color-most_dark from '../../styles.css';
+  background-color: _whitecolor;
+  /* composes: background_color-most_dark from '../../styles.css'; */
   display: flex;
 }

@@ -41,35 +41,31 @@ class InfoWindow extends Component {
           <div className={styles.up}>
             <p>Additional information to the exercise</p>
           </div>
-          <div className={styles.middle}>
-            <div className={styles.wrappingButtons}>
-
-
-              <button
-                className={styles.buttonSave}
-                onClick={this.onCloseModal}>
-              </button>
-
-
-              <button
-                className={styles.buttonDel}
-                onClick={this.onExitModal}>
-              </button>
-            </div>
-            <div className={styles.wrappingExerciseName}>
-              <textarea
-                className={styles.textarea}
-                onChange={this.onChangeExerciseName}
-                value={this.props.exerciseNewNameModal}>
-              </textarea>
-            </div>
+          <div className={styles.wrappingButtons}>
+            <button
+              className={styles.buttonSave}
+              onClick={this.onCloseModal}>
+            </button>
+            <button
+              className={styles.buttonDel}
+              onClick={this.onExitModal}>
+            </button>
           </div>
-          <textarea
-            className={styles.textarea}
-            onChange={this.onChangeData}
-            value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
-          </textarea>
-          <HistoryBox/>
+          <div className={styles.wrappingExerciseName}>
+            <textarea
+              className={styles.textarea}
+              onChange={this.onChangeExerciseName}
+              value={this.props.exerciseNewNameModal}>
+            </textarea>
+          </div>
+          <div className={styles.wrappingInfo}>
+            <textarea
+              className={styles.textarea}
+              onChange={this.onChangeData}
+              value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
+            </textarea>
+          </div>
+          <HistoryBox />
         </div>
       </div>
     );

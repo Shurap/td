@@ -1,13 +1,9 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor, _whitecolor from colors;
+
 .block {
-  border: 5px solid orange;
-  composes: background_color-most_dark from '../../styles.css';
+  /* border: 5px solid orange; */
+  background-color: _whitecolor;
   flex-grow: 1;
   overflow-y: auto;
 }
-
-/* @media (max-width: 600px) {
-  .block {
-      width: 5px;
-      display: none;
-  }
-} */
