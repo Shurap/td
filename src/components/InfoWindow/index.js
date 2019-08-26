@@ -62,7 +62,7 @@ class InfoWindow extends Component {
             <textarea
               className={styles.textarea}
               onChange={this.onChangeData}
-              value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
+              value={(this.props.infoDataModal) ? this.props.infoDataModal : ''}>
             </textarea>
           </div>
           <HistoryBox />
