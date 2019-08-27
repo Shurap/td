@@ -4,6 +4,7 @@ import styles from './indexInfoWindow.module.css';
 import { bindActionCreators } from 'redux';
 import { changeShowStatusModal, addModalInfoData, addAllExercisesToStore, addModalExerciseName, addAuthUserData } from '../../actions';
 import { withFirebase } from '../Firebase';
+import HistoryBox from './HistoryBox';
 
 class InfoWindow extends Component {
 
@@ -40,34 +41,31 @@ class InfoWindow extends Component {
           <div className={styles.up}>
             <p>Additional information to the exercise</p>
           </div>
-          <div className={styles.middle}>
-            <div className={styles.wrappingButtons}>
-
-
-              <button
-                className={styles.buttonSave}
-                onClick={this.onCloseModal}>
-              </button>
-
-
-              <button
-                className={styles.buttonDel}
-                onClick={this.onExitModal}>
-              </button>
-            </div>
-            <div className={styles.wrappingExerciseName}>
-              <textarea
-                className={styles.textarea}
-                onChange={this.onChangeExerciseName}
-                value={this.props.exerciseNewNameModal}>
-              </textarea>
-            </div>
+          <div className={styles.wrappingButtons}>
+            <button
+              className={styles.buttonSave}
+              onClick={this.onCloseModal}>
+            </button>
+            <button
+              className={styles.buttonDel}
+              onClick={this.onExitModal}>
+            </button>
           </div>
-          <textarea
-            className={styles.textarea}
-            onChange={this.onChangeData}
-            value={(this.props.infoDataModal) ? this.props.infoDataModal : undefined}>
-          </textarea>
+          <div className={styles.wrappingExerciseName}>
+            <textarea
+              className={styles.textareaExercise}
+              onChange={this.onChangeExerciseName}
+              value={this.props.exerciseNewNameModal}>
+            </textarea>
+          </div>
+          <div className={styles.wrappingInfo}>
+            <textarea
+              className={styles.textareaNotes}
+              onChange={this.onChangeData}
+              value={(this.props.infoDataModal) ? this.props.infoDataModal : ''}>
+            </textarea>
+          </div>
+          <HistoryBox />
         </div>
       </div>
     );

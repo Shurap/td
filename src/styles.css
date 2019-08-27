@@ -69,3 +69,16 @@
 .background-image_button_info {
   background: url('./images/baseline-info-24px.svg');
 }
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  border:2px solid #0e151b;
+  background-color:#3b3e4a;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0e151b;
+} */

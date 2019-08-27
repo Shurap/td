@@ -1,4 +1,9 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_blue, _whitecolor from colors;
+
 .block {
-  composes: background_color-most_dark from '../../styles.css';
-  width: 100%;
+  /* border: 5px solid orange; */
+  background-color: _whitecolor;
+  flex-grow: 1;
+  overflow-y: auto;
 }

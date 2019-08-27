@@ -1,0 +1,47 @@
+@value colors: "../../globalCSS/colors.css";
+@value _textcolor, _darkcolor from colors;
+
+.history {
+  /* border: 5px solid red; */
+
+  border: 1px solid _darkcolor;
+  color: _blackcolor;
+  border-radius: 4px;
+  margin: 4px;
+  padding: 2px;
+}
+
+.wrapperData {
+  /* border: 5px solid blue; */
+  display: flex;
+  justify-content: center;
+}
+
+.wrapperText {
+  /* border: 5px solid green; */
+  color: _textcolor;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.wrapperNumbers {
+  /* border: 5px solid rebeccapurple; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wrapperWight {
+  /* border: 5px solid yellow; */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.wrapperCount {
+  /* border: 5px solid orangered; */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}

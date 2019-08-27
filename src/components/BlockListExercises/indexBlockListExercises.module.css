@@ -1,53 +1,42 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_green, _darkcolor, _whitecolor, _textcolor from colors;
+
 .block {
+  /* border: 5px solid rgb(255, 0, 76); */
   display: flex;
-  margin: 6px 0 6px 6px;
+  flex-direction: column;
 }
 
-.buttonToggle {
-  composes: background-image_button_toggle_previous from '../../styles.css';
+.buttonToggle_visible {
+  composes: background-image_button_toggle_previous from '../../globalCSS/images.css';
 }
 
 .buttonToggle_hidden {
-  composes: background-image_button_toggle_next from '../../styles.css';
+  composes: background-image_button_toggle_next from '../../globalCSS/images.css';
 }
 
 .wrapperButton {
-  composes: background_color-most_light from '../../styles.css';
-  margin-left: 2px;
+  padding-left: 4px;
+  background: _whitecolor;
 }
 
 .wrapperExercise_hidden {
   display: none;
 }
 
-.up {
-  composes: background_color-most_light from '../../styles.css';
+.wrapperExercise_visible {
+  overflow-y: scroll;
+}
+
+.wrapperHat {
+  color: _textcolor;
+  border: 1px solid _darkcolor;
+  background-color: _backgroundcolor_green;
   height: 27px;
-  margin: 0 0 6px 0;
+  margin: 6px 6px 2px 6px;
   width: 190px;
-  composes: color-not_active_text from '../../styles.css';
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-}
-
-.up p {
-  margin: 0;
-}
-
-.down {
-  composes: background_color-most_light from '../../styles.css';
-  height: 27px;
-  margin: 6px 0 2px 0;
-  width: 190px;
-  composes: color-not_active_text from '../../styles.css';
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
-
-.down p {
-  margin: 0;
 }

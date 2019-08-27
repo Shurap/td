@@ -8,13 +8,13 @@ import styles from './indexRouter.module.css';
 
 const Router = () => (
   <main className={styles.router}>
-    <div>
+    {/* <div> */}
       <Route exact path='/' component={SignInPage}/>
       <Route path='/signup' component={SignUpPage}/>
       <Route path='/signin' component={SignInPage}/>
       <Route path='/signout' component={SignOutPage}/>
       <Route path='/home' component={HomePage}/>
-    </div>
+    {/* </div> */}
   </main>
 );
 
