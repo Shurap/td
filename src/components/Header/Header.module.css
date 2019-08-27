@@ -1,10 +1,10 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor, _backgroundcolor_two, _darkcolor, _textcolor, _blackcolor from colors;
+@value _backgroundcolor_blue, _backgroundcolor_blue_two, _darkcolor, _textcolor, _blackcolor from colors;
 
 .header {
   border: 1px solid _darkcolor;
   /* border: 5px solid red; */
-  background-color: _backgroundcolor;
+  background-color: _backgroundcolor_blue;
   min-height: 70px;
   max-height: 70px;
   display: flex;

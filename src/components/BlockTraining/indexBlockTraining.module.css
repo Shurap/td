@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor, _whitecolor from colors;
+@value _backgroundcolor_blue, _whitecolor from colors;
 
 .block {
   /* border: 5px solid orange; */

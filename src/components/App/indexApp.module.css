@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor, _darkcolor, _whitecolor from colors;
+@value _backgroundcolor_blue, _darkcolor, _whitecolor from colors;
 
 .app {
   /* border: 5px solid blue; */
@@ -17,7 +17,7 @@
   height: 25px;
   cursor: pointer;
   /* border-radius: 2px; */
-  border: 1px solid _backgroundcolor;
+  border: 1px solid _backgroundcolor_blue;
   border-radius: 3px;
 }
 
@@ -43,7 +43,7 @@
 
 ::-webkit-scrollbar-thumb{
   border: 1px solid _darkcolor;
-  background-color: _backgroundcolor;
+  background-color: _backgroundcolor_blue;
 }
 
 ::-webkit-scrollbar-track {

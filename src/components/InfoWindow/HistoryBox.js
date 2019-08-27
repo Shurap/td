@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import History from './History'
+import styles from './HistoryBox.module.css';
 
 class HistoryBox extends Component {
 
@@ -52,8 +53,7 @@ class HistoryBox extends Component {
 
 
     return (
-      <div>
-        HistoryBox
+      <div className={styles.historyBox}>
         {threeExercises}
       </div>
     )

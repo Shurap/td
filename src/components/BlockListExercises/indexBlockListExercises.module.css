@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor_one, _darkcolor, _whitecolor, _textcolor from colors;
+@value _backgroundcolor_green, _darkcolor, _whitecolor, _textcolor from colors;
 
 .block {
   /* border: 5px solid rgb(255, 0, 76); */
@@ -31,7 +31,7 @@
 .wrapperHat {
   color: _textcolor;
   border: 1px solid _darkcolor;
-  background-color: _backgroundcolor_one;
+  background-color: _backgroundcolor_green;
   height: 27px;
   margin: 6px 6px 2px 6px;
   width: 190px;

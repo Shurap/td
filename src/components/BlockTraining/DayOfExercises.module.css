@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor, _whitecolor, _darkcolor, _textcolor from colors;
+@value _backgroundcolor_blue, _whitecolor, _darkcolor, _textcolor from colors;
 
 .dayOfExercises {
   background-color: _whitecolor;

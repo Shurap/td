@@ -53,14 +53,14 @@ class InfoWindow extends Component {
           </div>
           <div className={styles.wrappingExerciseName}>
             <textarea
-              className={styles.textarea}
+              className={styles.textareaExercise}
               onChange={this.onChangeExerciseName}
               value={this.props.exerciseNewNameModal}>
             </textarea>
           </div>
           <div className={styles.wrappingInfo}>
             <textarea
-              className={styles.textarea}
+              className={styles.textareaNotes}
               onChange={this.onChangeData}
               value={(this.props.infoDataModal) ? this.props.infoDataModal : ''}>
             </textarea>

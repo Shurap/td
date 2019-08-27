@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor, _backgroundcolor_three, _darkcolor, _textcolor, _blackcolor, _whitecolor from colors;
+@value _backgroundcolor_blue, _backgroundcolor_red, _darkcolor, _textcolor, _blackcolor, _whitecolor from colors;
 
 .trainingExercise {
   /* border: 5px solid blueviolet; */
@@ -12,7 +12,7 @@
 }
 
 .wrappingExercise {
-  background-color: _backgroundcolor_three;
+  background-color: _backgroundcolor_blue;
   border: 1px solid _darkcolor;
   /* border: 5px solid red; */
   display: flex;

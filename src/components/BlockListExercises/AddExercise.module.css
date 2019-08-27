@@ -1,11 +1,11 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor_one, _darkcolor, _blackcolor, _textcolor, _active_buttoncolor from colors;
+@value _backgroundcolor_green, _darkcolor, _blackcolor, _textcolor, _active_buttoncolor from colors;
 
 .addExercise {
   display: flex;
   flex-direction: column;
   border: 1px solid _darkcolor;
-  background-color: _backgroundcolor_one;
+  background-color: _backgroundcolor_green;
   width: 190px;
   margin: 0 6px 0 6px;
 }
