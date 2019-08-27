@@ -25,8 +25,8 @@ export default class History extends Component {
           {this.props.name}
         </div>
         <div className={styles.wrapperText}>
-          <p>weight</p>
           <p>repeat</p>
+          <p>weight</p>
         </div>
         {dataIn}
 
