@@ -21,6 +21,14 @@ class Edit extends Component {
     this.props.addNumbersToStore(e.target.value, dateOfDay, exercise, e.target.name, count);
   }
 
+  onFocus = (e) => {
+    if (e.target.value === '0') e.target.value = '';
+  }
+
+  onBlur = (e) => {
+    if (e.target.value === '') e.target.value = '0';
+  }
+
   render() {
 
     const { labelCount, labelWight, count, dateOfDay, exercise } = this.props
@@ -45,6 +53,8 @@ class Edit extends Component {
             defaultValue={labelCount}
             name={'count'}
             onChange={(e) => this.onChange(e, dateOfDay, exercise, count)}
+            onFocus={(e) => this.onFocus(e)}
+            onBlur={(e) => this.onBlur(e)}
           ></input>
           <input
             className={styles.textInput}
@@ -53,6 +63,8 @@ class Edit extends Component {
             defaultValue={labelWight}
             name={'wight'}
             onChange={(e) => this.onChange(e, dateOfDay, exercise, count)}
+            onFocus={(e) => this.onFocus(e)}
+            onBlur={(e) => this.onBlur(e)}
           ></input>
         </div>
       </div>

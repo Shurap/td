@@ -94,8 +94,7 @@ class SignInFormBase extends Component {
             <span className={styles.underEdit}></span>
           </div>
           {error && <p>{error.message}</p>}
-        </form>
-        <div className={styles.wrapperButtonDown}>
+          <div className={styles.wrapperButtonDown}>
           <div>
             <p>SignUp</p>
           </div>
@@ -104,6 +103,7 @@ class SignInFormBase extends Component {
             onClick={this.onRedirect}>
           </button>
         </div>
+        </form>
       </div>
     );
 

@@ -1,5 +1,5 @@
 @value colors: "../../globalCSS/colors.css";
-@value _backgroundcolor_red, _darkcolor, _textcolor, _blackcolor from colors;
+@value _backgroundcolor_red, _darkcolor, _textcolor, _blackcolor, _whitecolor from colors;
 
 .infoWindowFalse {
   display: none;
@@ -20,16 +20,13 @@
 .window {
   background-color: _backgroundcolor_red;
   border: 1px solid _darkcolor;
+  box-shadow: 0 0 0 5px  _whitecolor;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* width: 50%; */
-  /* height: 50%; */
   z-index: 1002;
 }
 
 .textareaExercise {
-  /* background-color: _backgroundcolor_blue; */
   color: _blackcolor;
   border: none;
   resize: none;
@@ -41,7 +38,6 @@
 }
 
 .textareaNotes {
-  /* background-color: _backgroundcolor_blue; */
   color: _blackcolor;
   border: none;
   resize: none;
@@ -87,8 +83,6 @@ textarea:focus {
   align-items: center;
   padding: 2px;
   font-size: 20px;
-  /* height: 100px; */
-  /* width: 100%; */
 }
 
 .buttonSave{

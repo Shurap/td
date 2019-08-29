@@ -1,0 +1,12 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_blue, _backgroundcolor_blue_two, _darkcolor, _textcolor, _blackcolor from colors;
+
+.footer {
+  border: 1px solid _darkcolor;
+  /* border: 5px solid yellow; */
+  background-color: _backgroundcolor_blue;
+  min-height: 35px;
+  max-height: 35px;
+  display: flex;
+  align-items: center;
+}

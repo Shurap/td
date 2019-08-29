@@ -15,16 +15,20 @@ class SignOutPage extends Component {
   render() {
     return (
       <div className={styles.signOut}>
-        <div>
-          <p>SignOut</p>
+        <div className={styles.wrapperForm}>
+          <div className={styles.wrapperText}>
+            <p>SignOut</p>
+          </div>
+          <div className={styles.wrapperButton}>
+            <button className={styles.buttonOut} type="button" onClick={() => {
+              this.props.userOut();
+              this.props.firebase.doSignOut();
+              this.onOut();
+            }}>
+            </button>
+          </div>
         </div>
-        <button className={styles.buttonOut} type="button" onClick={() => {
-          this.props.userOut();
-          this.props.firebase.doSignOut();
-          this.onOut();
-        }}>
-        </button>
-      </div>
+      </div >
     );
   }
 }
