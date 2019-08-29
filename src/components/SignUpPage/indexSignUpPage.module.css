@@ -1,20 +1,23 @@
+@value colors: "../../globalCSS/colors.css";
+@value _backgroundcolor_blue, _whitecolor, _darkcolor, _blackcolor, _textcolor from colors;
+
 .signUp {
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  margin-top: 5vh;
 }
 
 .form {
-  composes: background_color-general_color from '../../styles.css';
+  background-color: _backgroundcolor_blue;
+  border: 1px solid _darkcolor;
   width: 240px;
   padding: 10px;
-  margin-top: 10vh;
 }
 
 .wrapperText {
-  composes: color-not_active_text from '../../styles.css';
+  color: _textcolor;
   display: flex;
   justify-content: center;
   font-size: 20px;
@@ -35,7 +38,7 @@
 }
 
 .textInput {
-  composes: color-active_text from '../../styles.css';
+  color: _blackcolor;
   background-color: transparent;
   border: none;
   text-align: left;
@@ -48,37 +51,26 @@
 }
 
 .underEdit {
-  composes: background_color-active_text from '../../styles.css';
+  background-color: _darkcolor;
   height: 1px;
   margin-bottom: 10px;
   transform: scale(0, 1);
   transition: all 0.5s linear;
 }
 
-.form input:focus::-webkit-input-placeholder {
+/* .form input:focus::-webkit-input-placeholder {
   color: #b17c2e;
-}
+} */
 
 .form input:focus+.underEdit {
   transform: scale(1);
 }
 
 .buttonCheck {
-  composes: background-image_button_check from '../../styles.css';
+  composes: background-image_button_check from '../../globalCSS/images.css';
 }
 
 .buttonCheckActive {
-  composes: background-image_button_check from '../../styles.css';
-  background-color: #b17c2e;
-}
-
-.wrapperButtonDown {
-  composes: background_color-general_color from '../../styles.css';
-  composes: color-not_active_text from '../../styles.css';
-  display: flex;
-  width: 240px;
-  padding: 10px;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 12px;
+  composes: background-image_button_check from '../../globalCSS/images.css';
+  background-color: _darkcolor;
 }

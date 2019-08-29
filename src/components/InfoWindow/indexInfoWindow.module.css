@@ -22,14 +22,10 @@
   border: 1px solid _darkcolor;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* width: 50%; */
-  /* height: 50%; */
   z-index: 1002;
 }
 
 .textareaExercise {
-  /* background-color: _backgroundcolor_blue; */
   color: _blackcolor;
   border: none;
   resize: none;
@@ -41,7 +37,6 @@
 }
 
 .textareaNotes {
-  /* background-color: _backgroundcolor_blue; */
   color: _blackcolor;
   border: none;
   resize: none;
@@ -87,8 +82,6 @@ textarea:focus {
   align-items: center;
   padding: 2px;
   font-size: 20px;
-  /* height: 100px; */
-  /* width: 100%; */
 }
 
 .buttonSave{
